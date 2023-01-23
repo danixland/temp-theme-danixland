@@ -1,0 +1,8 @@
+<footer id="colophon" class="site-footer">
+	<div id="footer-content">
+		<p>Copyright &copy; {{ partial "funcs/year.html" }} <a href="{{- $.Site.Params.author_url -}}" target="_blank">{{- $.Site.Params.author_name -}}</a></p>
+		<p><a href="{{.Site.BaseURL}}sitemap.xml" target="_blank">sitemap</a></p>
+	</div>
+	{{- partial "footer-addition.html" . -}}
+	{{- partial "funcs/social-menu.html" . -}}
+</footer>

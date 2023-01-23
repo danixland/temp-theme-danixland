@@ -1,0 +1,24 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<link rel="stylesheet" href="{{ "assets/css/dagreynix_fonts.css" | absURL }}">
+	<link rel="stylesheet" href="{{ "assets/css/dagreynix.css" | absURL }}">
+	{{ partial "funcs/favicon.html" . }}
+	<link rel="canonical" href="{{ .Permalink }}">
+
+	{{ with .OutputFormats.Get "rss" -}}
+	    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+	{{ end -}}
+
+    {{ $title := print .Site.Title " ⋇ " .Title }}
+    {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
+    <title>{{ $title }}</title>
+
+	{{ template "_internal/opengraph.html" . }}
+	{{ template "_internal/schema.html" . }}
+	{{ template "_internal/twitter_cards.html" . }}
+
+	{{- partial "head-addition.html" . -}}
+
+</head>
