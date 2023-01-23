@@ -1,0 +1,55 @@
+{{/*
+	* The gravatar shortcode:
+	* All arguments are optional, main ones are mail and size and have a fallback set in place.
+	* Args:
+	*		mail: [string] The email address. Falls back to .Site.Params.author_email which should be set in your config file.
+	*		size: [int] The size of the fetched image. Defaults to 200 if not set.
+	*		class: [string] The class to give to the figure block.
+	*		link: [string] The address to link the picture to.
+	*		target: [string] Where to open the link. One of "_blank", "_self", "_parent", "_top".
+	*		caption: [string] Caption text to show with the image. Supports Markdown.
+	*
+	* Usage:
+	*		{{< gravatar mail="some@address.com" size=150 class="some class" link="https://example.com" target="_blank" rel="author" caption="Here's a picture of a dog." >}}
+	*
+	* Output:
+	*	<figure class="some class">
+	*		<a href="https://example.com" target="_blank" rel="author">
+	*			<img src="https://www.gravatar.com/avatar/emailhash?s=150" alt="Here's a picture of a dog." />
+	*		</a>
+	*		<<figcaption>
+	*			<p>
+	*				Here's a picture of a dog.
+	*			</p>
+	*		</figcaption>
+	*	</figure>
+	*
+	*/}}
+{{- if .Get "mail" -}}
+	{{- $mailaddr := .Get "mail" -}}
+	{{- .Scratch.Set "mailhash" $mailaddr -}}
+{{ else }}
+	{{- .Scratch.Set "mailhash" $.Site.Params.author_email -}}
+{{ end }}
+{{- $hash := .Scratch.Get "mailhash" | lower | md5 -}}
+
+<figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
+{{- if .Get "link" -}}
+	<a href="{{ .Get "link" }}"{{ with .Get "target" }} target="{{ . }}"{{ end }}{{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
+{{- end }}
+	<img src="https://www.gravatar.com/avatar/{{- $hash -}}?s={{- with .Get "size" }}{{.}}{{ else }}200{{ end }}"
+		{{- if or (.Get "alt") (.Get "caption") }}
+		alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "caption" | markdownify| plainify }}{{ end }}"
+		{{- end -}}
+	/>
+{{- if .Get "link" -}}
+	</a>
+{{- end }}
+{{- if .Get "caption" -}}
+	<figcaption>
+		<p>
+		{{- .Get "caption" | markdownify -}}
+		</p>
+	</figcaption>
+{{- end }}
+</figure>

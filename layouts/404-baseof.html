@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ $.Site.LanguageCode | default "en" }}">
+	{{- partial "head.html" . -}}
+	<body class="not-found 404 error">
+		<div id="page">
+			<a class="skip-link screen-reader-text" href="#primary">skip to content</a>
+			{{- partial "header.html" . -}}
+			<div id="content" class="site-content">
+				<div id="primary" class="content-area">
+					<main id="main" class="site-main">
+						{{- block "404-main" . }}{{- end }}
+					</main>
+				</div>
+				<div id="secondary" class="related-content">
+					{{- partial "tag-cloud.html" . -}}
+					{{- partial "home-latest-posts.html" . -}}
+				</div>
+			</div>
+			{{- partial "footer.html" . -}}
+		</div>
+	</body>
+</html>

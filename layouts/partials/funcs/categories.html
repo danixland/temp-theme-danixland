@@ -1,0 +1,13 @@
+{{ with .Params.categories }}
+<div class="post-cats">
+	<span>Published in:</span>
+	<ul class="article-tags">
+		{{ range . }}
+		{{ $href := print (absURL "categories/") (urlize .) }}
+		<li>
+			<a href="{{ $href }}">{{ . }}</a>
+		</li>
+		{{ end }}
+	</ul>
+</div>
+{{ end }}

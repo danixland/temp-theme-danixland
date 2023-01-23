@@ -1,0 +1,11 @@
+<div id="latest-posts">
+	<h3>latest posts</h3>
+	{{ range where $.Site.RegularPages.ByLastmod.Reverse "Section" "blog" }}
+	<article class="post post-summary">
+		<header class="article-meta">
+			<h3><a class="title" href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+			{{ partial "funcs/datepublish.html" . }}
+		</header>
+	</article>
+	{{ end }}
+</div>

@@ -1,0 +1,18 @@
+{{ with .Site.Social }}
+<div id="social-menu">
+	<ul class="social-links">
+		<li class="social-link social-facebook">
+			<a href="https://facebook.com/{{ .facebook }}" target="_blank">facebook</a>
+		</li>
+		<li class="social-link social-twitter">
+			<a href="https://twitter.com/{{ .twitter }}" target="_blank">twitter</a>
+		</li>
+		<li class="social-link social-instagram">
+			<a href="https://instagram.com/{{ .instagram }}" target="_blank">instagram</a>
+		</li>
+		<li class="social-link social-github">
+			<a href="https://github.com/{{ .github }}" target="_blank">github</a>
+		</li>
+	</ul>
+</div>
+{{ end }}

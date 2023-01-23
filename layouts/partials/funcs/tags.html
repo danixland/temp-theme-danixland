@@ -1,0 +1,13 @@
+{{ with .Params.tags }}
+<div class="post-tags">
+	<span>Tagged: </span>
+	<ul class="article-tags">
+		{{ range . }}
+		{{ $href := print (absURL "tags/") (urlize .) }}
+		<li>
+			<a class="" href="{{ $href }}">{{ . }}</a>
+		</li>
+		{{ end }}
+	</ul>
+</div>
+{{ end }}
