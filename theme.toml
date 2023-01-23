@@ -5,17 +5,12 @@ name = "Hugo Dagreynix"
 license = "MIT"
 licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE"
 description = ""
-homepage = "http://example.com/"
-tags = []
+homepage = "https://danix.xyz/"
+tags = [minimal]
 features = []
 min_version = "0.41.0"
 
 [author]
-  name = ""
-  homepage = ""
+  name = "Danilo 'danix' M."
+  homepage = "https://danix.xyz"
 
-# If porting an existing theme
-[original]
-  name = ""
-  homepage = ""
-  repo = ""
