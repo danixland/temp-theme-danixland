@@ -2,8 +2,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-	<link rel="stylesheet" href="{{ "assets/css/dagreynix_fonts.css" | absURL }}">
-	<link rel="stylesheet" href="{{ "assets/css/dagreynix.css" | absURL }}">
+
+	{{ $main_options := (dict "targetPath" "css/site.css" "outputStyle" "compressed") }}
+	{{ $main_template := resources.Get "sass/main.scss" }}
+	{{ $main_style := $main_template | resources.ExecuteAsTemplate "main_parsed.scss" . | toCSS $main_options | resources.Minify }}
+
+	<link rel="stylesheet" href="{{ $main_style.RelPermalink }}">
+
+
+<!-- 	<link rel="stylesheet" href="{{ "assets/css/dagreynix_fonts.css" | absURL }}">
+	<link rel="stylesheet" href="{{ "assets/css/dagreynix.css" | absURL }}"> -->
 	{{ partial "funcs/favicon.html" . }}
 	<link rel="canonical" href="{{ .Permalink }}">
 
