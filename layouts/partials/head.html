@@ -3,9 +3,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
-	{{ $main_options := (dict "targetPath" "css/site.css" "outputStyle" "compressed") }}
-	{{ $main_template := resources.Get "sass/main.scss" }}
-	{{ $main_style := $main_template | resources.toCSS $main_options | resources.Minify }}
+	{{ $sass_options := (dict "targetPath" "css/site.css" "outputStyle" "compressed" "transpiler" "dartsass") }}
+	{{ $sass_template := resources.Get "sass/main.scss" }}
+	{{ $main_style := $sass_template | resources.toCSS $sass_options }}
 
 	<link rel="stylesheet" href="{{ $main_style.RelPermalink }}">
 
