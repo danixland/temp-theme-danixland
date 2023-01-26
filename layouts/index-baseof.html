@@ -11,9 +11,8 @@
 						{{- block "home-main" . }}{{- end }}
 					</main>
 				</div>
-				<div id="secondary" class="related-content">
-					{{- partial "home-latest-posts.html" . -}}
-					{{- partial "tag-cloud.html" . -}}
+				<div id="secondary" class="home-links">
+					{{ partial "home-social-links.html" . }}
 				</div>
 			</div>
 			{{- partial "footer.html" . -}}

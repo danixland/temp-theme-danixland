@@ -1,7 +1,14 @@
-<meta name="theme-color" content="#ffeb3b">
-<meta name="msapplication-navbutton-color" content="#ffeb3b">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="theme-color" content="#ffeb3b">
+	<meta name="msapplication-navbutton-color" content="#ffeb3b">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-<link rel="icon" sizes="192x192" href='{{ "/assets/img/icon.png" | absURL }}'>
-<link rel="apple-touch-icon" href='{{ "/assets/img/icon.png" | absURL }}'>
+{{ range $i := .Site.Params.faviconSizes }} 
+	{{ $favicon := resources.Get "img/icon.png" }} 
+	{{ $image := $favicon.Resize (printf "%dx%d CatmullRom" $i $i) }}
+	<link rel="icon" type="image/png" sizes="{{$i}}x{{$i}}" href="{{ $image.Permalink }}" />
+{{ end }} 
+{{ with resources.Get "img/icon.png" }} 
+	{{ $image := .Resize "180x CatmullRom" }}
+	<link rel="apple-touch-icon" sizes="180x180" href="{{ $image.Permalink }}" />
+{{ end }}

@@ -3,12 +3,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
-	{{ $main_style := resources.Get "sass/main.scss" | resources.toCSS }}
-	<link rel="stylesheet" href="{{ $main_style.RelPermalink }}">
+	{{ $style_options := (dict "targetPath" "css/style.css" "outputStyle" "compressed" "transpiler" "dartsass" "enableSourceMap" (not hugo.IsProduction)) }}
+	{{ $style := resources.Get "sass/main.scss" | resources.ToCSS $style_options }}
 
 
-<!-- 	<link rel="stylesheet" href="{{ "assets/css/dagreynix_fonts.css" | absURL }}">
-	<link rel="stylesheet" href="{{ "assets/css/dagreynix.css" | absURL }}"> -->
+ 	<link rel="stylesheet" href="{{ "assets/css/dagreynix_fonts.css" | absURL }}">
+	<link rel="stylesheet" href="{{ $style.RelPermalink }}">
 	{{ partial "funcs/favicon.html" . }}
 	<link rel="canonical" href="{{ .Permalink }}">
 

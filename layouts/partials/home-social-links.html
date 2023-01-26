@@ -1,0 +1,10 @@
+<div id="home-social-links">
+	<h3 class="text-only">my socials</h3>
+	<ul>
+		{{ range site.Data.socials.sites }}
+			<li>
+				<a href="{{ .url }}/{{ .user }}">{{ .name }}</a>
+			</li>
+		{{ end }}
+	</ul>
+</div>
