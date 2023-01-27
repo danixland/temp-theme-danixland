@@ -4,7 +4,11 @@
 {{ if isset .Params "featured_image" }}
 <style media="screen">
 	header#masthead {
-		background-image: url( {{ $.Params.featured_image | urlize }} );
+		height: 60vh;
+		background-image: url( {{ $.Params.featured_image | absURL }} );
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-attachment: fixed;
 	}
 </style>
 {{ end }}

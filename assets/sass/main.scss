@@ -8,8 +8,7 @@
 // MY COLOR DEFINITIONS
 @import "colors";
 // GOOGLE FONTS
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,600;1,400;1,600&display=swap');
-
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,600;1,400;1,600&family=Red+Hat+Mono&display=swap');
 html {
 	margin: 0;
 	padding: 0;
@@ -76,8 +75,7 @@ html {
 								a {
 									color: $dark-orange;
 									&:hover {
-										animation-name: fa-bounce;
-										color: shade($dark-orange, 60%);
+										color: shade($dark-orange, 40%);
 									}
 								}
 							}
@@ -91,4 +89,18 @@ html {
 .screen-reader-text,
 .hidden {
 	@include hide-visually;
+}
+pre {
+	margin: 1em;
+	padding: 0.7em;
+	max-width: 90vw;
+	background-color: $light-grey;
+	color: $light-orange;
+	font-size: 1.4em;
+	font-family: 'Red Hat Mono', monospace;
+}
+div#backtotop {
+	a {
+		color: $light-orange;
+	}
 }
