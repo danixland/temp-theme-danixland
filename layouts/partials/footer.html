@@ -5,7 +5,7 @@
 	<div>
 		<ul>
 			<li><a href="{{.Site.BaseURL}}sitemap.xml" target="_blank">sitemap</a></li>
-			<li><a href="{{.Site.BaseURL}}/is/legal" target="_blank">Privacy Policy</a></li>
+			<li><a href="{{ ref . "legal" }}">Privacy Policy</a></li>
 		</ul>
 	</div>
 	{{- partial "footer-addition.html" . -}}

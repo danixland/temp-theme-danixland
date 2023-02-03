@@ -1,0 +1,19 @@
+<blockquote class="blockquote">
+    <p>
+        {{.Inner}}
+    </p>
+    {{ if .Get "source" }}
+    <footer class="blockquote-footer">
+		<cite title="by: {{ with .Get "source"}}{{.}}{{ end }}">
+            {{ with .Get "src"}}
+                by
+                <a href="{{.}}" target="_blank" rel="noopener noreferrer">
+            {{ end }}
+            {{ with .Get "source" }}{{.}}{{ end }}
+            {{ with .Get "src"}}
+                </a>
+            {{ end }}
+		</cite>
+	</footer>
+    {{ end }}
+</blockquote>
