@@ -1,13 +1,10 @@
 <div id="home-social-links">
 	<h3 class="screen-reader-text social-links-title">my socials</h3>
 	<ul class="social-links-list">
-		{{ range site.Data.socials.sites }}
+		{{ range site.Data.socials.sites | shuffle }}
 			<li>
 				<a href="{{ .url }}/{{ .user }}"><i class="fa-brands fa-square-{{ .name }}"></i><span class="screen-reader-text">{{ .name }}</span></a>
 			</li>
 		{{ end }}
-			<li>
-				<a href=""><i class="fa-solid fa-angles-up"></i><span class="screen-reader-text">suca</span></a>
-			</li>
 	</ul>
 </div>
