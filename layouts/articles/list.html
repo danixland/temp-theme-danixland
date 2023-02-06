@@ -1,9 +1,6 @@
 {{ define "main" }}
-<article class="entry post">
-	<header>
-		<h2>{{ .Title }}</h2>
-	</header>
-	<div id="content">
+<article class="single-page">
+	<div id="page-content">
 		{{ .Content }}
 	</div>
 </article>
@@ -11,7 +8,10 @@
 	<!-- Ranges through content/posts/*.md -->
 	{{ range .Pages }}
 	<li>
-		<a href="{{.Permalink}}">{{.Date.Format "01-02-2006"}} | {{.Title}}</a>
+		<div>
+			<h3 class="article-title"><a href="{{.Permalink}}">{{.Title}}</a></h3>
+			<p class="byline">by {{ .Params.Author }} on {{.Date.Format "01-02-2006"}}</p>
+		</div>
 	</li>
 	{{ end }}
 </ul>
