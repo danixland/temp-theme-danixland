@@ -1,0 +1,4 @@
+<span class="inline-svg">
+{{ $svg := .Get 0 }}
+{{ readFile ( print "SVGs/" . ".svg" ) | safeHTML  }}
+</span>

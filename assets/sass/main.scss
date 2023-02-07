@@ -2,11 +2,10 @@
 
 // BOURBON 
 @import "bourbon/bourbon";
-// FONT-AWESOME v6.2.1
-@import "fa-v6/fontawesome";
-@import "fa-v6/brands";
+
 // MY COLOR DEFINITIONS
 @import "colors";
+
 // GOOGLE FONTS
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,600;1,400;1,600&family=Red+Hat+Mono&display=swap');
 
@@ -119,4 +118,11 @@ div#backtotop {
 			color: inherit;
 		}
 	}
+}
+.inline-svg {
+	display: inline-block;
+	height: 1.15rem;
+	width: 1.15rem;
+	top: 0.15rem;
+	position: relative;
 }

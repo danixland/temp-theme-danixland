@@ -1,14 +1,16 @@
 {{/*
 	* Add the featured image to the header if it's present in the Front Matter
 	*/}}
-{{ if isset .Params "featured_image" }}
-<style media="screen">
-	header#masthead {
-		height: 60vh;
-		background-image: url( {{ $.Params.featured_image | absURL }} );
-		background-repeat: no-repeat;
-		background-position: center center;
-		background-attachment: fixed;
-	}
-</style>
+{{ if .IsPage }}
+	{{ if isset .Params "featured_image" }}
+	<style media="screen">
+		header#masthead {
+			height: 60vh;
+			background-image: url( {{ $.Params.featured_image | absURL }} );
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-attachment: fixed;
+		}
+	</style>
+	{{ end }}
 {{ end }}

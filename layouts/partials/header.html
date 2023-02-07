@@ -6,6 +6,6 @@
 		<p class="site-description">{{ .Site.Params.Description }}</p>
 	</div>
 	{{ if isset .Site.Menus "main" }}
-	{{- partial "main-menu.html" . -}}
+		{{- partial "main-menu.html" . -}}
 	{{ end }}
 </header>
