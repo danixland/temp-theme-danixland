@@ -54,6 +54,9 @@ html {
 					ul.social-links {
 						margin: 0;
 						padding: 0;
+						li {
+							display: inline-block;
+						}
 					}
 				}
 			}
@@ -63,14 +66,11 @@ html {
 				padding: 1em 3em;
 				div#secondary {
 					div#home-social-links {
-						margin: 1em auto;
 						ul.social-links-list {
 							list-style: none;
 							li {
 								display: inline-block;
 								float: none;
-								font-size: 4em;
-								width: 2em;
 								text-align: center;
 								a {
 									color: $dark-orange;
@@ -85,6 +85,9 @@ html {
 			}
 		}
 	}
+}
+ul {
+	list-style: none;
 }
 .screen-reader-text,
 .hidden {
@@ -111,18 +114,16 @@ div#backtotop {
 		border: none;
 		cursor: pointer;
 		display: block;
-		width: 2em;
-		height: 2em;
+		width: 3em;
+		height: 3em;
 		color: $dark-grey;
-		& i {
-			color: inherit;
-		}
 	}
 }
 .inline-svg {
 	display: inline-block;
-	height: 1.15rem;
-	width: 1.15rem;
-	top: 0.15rem;
+	height: 3em;
+	width: 3em;
+	margin-right: 1em;
+	top: 0.15em;
 	position: relative;
 }

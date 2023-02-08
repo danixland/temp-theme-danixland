@@ -1,17 +1,21 @@
 {{ with .Site.Social }}
 <div id="social-menu">
 	<ul class="social-links">
-		<li class="social-link social-facebook">
-			<a href="https://facebook.com/{{ .facebook }}" target="_blank">facebook</a>
+		<li class="social-link social-spotify">
+			{{$spotify := "spotify"}}
+			<a href="https://spotify.com/{{ .spotify }}" target="_blank">{{ partial "funcs/svg.html" (dict "context" . "username" $spotify) }}</a>
 		</li>
 		<li class="social-link social-twitter">
-			<a href="https://twitter.com/{{ .twitter }}" target="_blank">twitter</a>
+			{{$twitter := "twitter"}}
+			<a href="https://twitter.com/{{ .twitter }}" target="_blank">{{ partial "funcs/svg.html" (dict "context" . "username" $twitter) }}</a>
 		</li>
 		<li class="social-link social-instagram">
-			<a href="https://instagram.com/{{ .instagram }}" target="_blank">instagram</a>
+			{{$instagram := "instagram"}}
+			<a href="https://instagram.com/{{ .instagram }}" target="_blank">{{ partial "funcs/svg.html" (dict "context" . "username" $instagram) }}</a>
 		</li>
 		<li class="social-link social-github">
-			<a href="https://github.com/{{ .github }}" target="_blank">github</a>
+			{{$github := "github"}}
+			<a href="https://github.com/{{ .github }}" target="_blank">{{ partial "funcs/svg.html" (dict "context" . "username" $github) }}</a>
 		</li>
 	</ul>
 </div>

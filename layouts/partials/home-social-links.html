@@ -3,9 +3,9 @@
 	<ul class="social-links-list">
 		{{ range site.Data.socials.sites | shuffle }}
 			<li>
-				<a href="{{ .url }}/{{ .user }}">{{ partial "funcs/svg.html" ".name" }}</a>
+				{{$name := .name}}
+				<a href="{{ .url }}/{{ .user }}">{{ partial "funcs/svg.html" (dict "context" . "username" $name) }}</a>
 			</li>
 		{{ end }}
-			<li class="linux">{{ partial "funcs/svg.html" "linux" }}</li>
 	</ul>
 </div>

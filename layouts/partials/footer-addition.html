@@ -1,4 +1,5 @@
 <!-- here will appear eventual js code and other additions to the footer -->
 <div id="backtotop">
-	<a href="#top"><i class="fa-brands fa-caret-up"></i><span class="screen-reader-text">back to top</span></a>
+	{{$name := "arrow-up"}}
+	<a href="#top">{{ partial "funcs/svg.html" (dict "context" . "username" $name) }}<span class="screen-reader-text">back to top</span></a>
 </div>
