@@ -1,4 +1,4 @@
-<span class="inline-svg" >
-{{- $fname:=print "../SVGs/" ( .Get 0 ) ".svg" -}}
-{{ $fname | readFile | safeHTML }}
-</span>
+<pre class="inline-vg">
+{{ $favicon := resources.Get "SVGs/linux.svg" }}
+{{ $favicon | absURL | readFile | safeHTML }}
+</pre>
