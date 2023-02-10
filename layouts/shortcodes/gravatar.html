@@ -25,6 +25,7 @@
 	*	</figure>
 	*
 	*/}}
+
 {{- if .Get "mail" -}}
 	{{- $mailaddr := .Get "mail" -}}
 	{{- .Scratch.Set "mailhash" $mailaddr -}}

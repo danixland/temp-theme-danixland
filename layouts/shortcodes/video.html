@@ -1,0 +1,36 @@
+{{/*
+	* The video shortcode:
+	* All arguments are optional, except for src which is where you define your video file
+	* This shortcode supports only webm video files.
+	* Args:
+	*		class: [string] The class(es) to give to the video block.
+	*		width: [int] The width of the video
+	*		height: [int] The height of the video
+	*		autoplay: [bool] true or false for autoplay - defaults to false
+	*		loop: [bool] true or false for loop - defaults to false
+	*		mute: [bool] true or false for mute - defaults to false
+	*
+	* Usage:
+	*		{{< video src="my-awesome-video.mp4" width=600 height=600 autoplay=true loop=true mute=true class="some class" >}}
+	*
+	* Output:
+	*	<video class="some class" controls preload="auto" width="600" height="600" autoplay loop muted>
+			<source src="my-awesome-video.mp4" type="video/webm">
+	*	</video>
+	*
+	*/}}
+
+{{ $ext := (.Get "src") | path.Ext }}
+{{ $filetype := slicestr $ext 1}}
+
+<video{{ with .Get "class" }} class="{{ . }}"{{ end }}
+	controls
+	preload="auto"
+	{{ with .Get "width" }}width="{{.}}"{{ end }}
+	{{ with .Get "height" }}height="{{.}}"{{ end }}
+	{{ if eq (.Get "autoplay") "true" }}autoplay {{ end }}
+	{{ if eq (.Get "loop") "true" }}loop {{ end }}
+	{{ if eq (.Get "muted") "true" }}muted {{ end }}
+	playsinline class="html-video" >
+    <source src="{{ ( .Get "src" ) }}" type="video/{{ $filetype }}">
+</video>
