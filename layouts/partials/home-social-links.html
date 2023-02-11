@@ -1,6 +1,8 @@
-<div id="home-social-links">
-	<h3 class="screen-reader-text social-links-title">my socials</h3>
-	<ul class="social-links-list">
+<div class="inner">
+	<header class="major">
+		<h3 class="screen-reader-text social-links-title">my socials</h3>
+	</header>
+	<ul class="social-sites">
 		{{ range site.Data.socials.sites | shuffle }}
 			<li>
 				{{$name := .name}}

@@ -1,11 +1,10 @@
-<header id="masthead" class="site-header">
-	<div class="site-branding">
-		<h1 class="site-title">
-			<a href="{{ .Site.BaseURL }}" rel="home">{{ .Site.Title }}</a>
-		</h1>
-		<p class="site-description">{{ .Site.Params.Description }}</p>
-	</div>
-	{{ if isset .Site.Menus "main" }}
-		{{- partial "main-menu.html" . -}}
-	{{ end }}
+<header id="header" class="alt">
+	<a href="{{ .Site.BaseURL }}" rel="home" class="logo"><strong>{{ slicestr .Site.Title 0 5 }}</strong><span>{{ slicestr .Site.Title 5 }}</span></a>
+	<nav>
+		<a href="#menu">Menu</a>
+	</nav>
 </header>
+
+{{ if isset .Site.Menus "main" }}
+	{{- partial "main-menu.html" . -}}
+{{ end }}

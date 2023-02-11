@@ -1,129 +1,73 @@
-// various imports for our styling
-
-// BOURBON 
-@import "bourbon/bourbon";
-
+@import 'libs/vars';
+@import 'libs/functions';
+@import 'libs/mixins';
+@import 'libs/my-mixins';
+@import 'libs/vendor';
+@import 'libs/breakpoints';
+@import 'libs/html-grid';
 // MY COLOR DEFINITIONS
 @import "colors";
-
 // GOOGLE FONTS
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,600;1,400;1,600&family=Red+Hat+Mono&display=swap');
 
-html {
-	margin: 0;
-	padding: 0;
-	font-family: 'Montserrat', sans-serif;
-	color: $dark-grey;
-	a {
-		color: $dark-accent;
-		text-decoration: none;
-		&:visited {
-			color: $light-accent;
-		}
-		&:hover {
-			color: $dark-orange;
+// Breakpoints.
+
+	@include breakpoints((
+		xlarge:    (1281px,   1680px   ),
+		large:     (981px,    1280px   ),
+		medium:    (737px,    980px    ),
+		small:     (481px,    736px    ),
+		xsmall:    (361px,    480px    ),
+		xxsmall:   (null,     360px    )
+	));
+
+
+// Mixins.
+
+	@mixin inner {
+		> .inner {
+			@include padding(4em, 0);
+			margin: 0 auto;
+			max-width: _size(inner);
+			width: calc(100% - 6em);
+
+			@include breakpoint('<=small') {
+				@include padding(3em, 0);
+				width: calc(100% - 3em);
+			}
 		}
 	}
 
-	body {
-		background-color: $base-bg;
-		margin: 0;
-		padding: 0;
+// Base.
 
-		div#page {
-			header#masthead,
-			footer#colophon {
-				color: $base-bg;
-				background-color: $dark-grey;
-				margin: 0;
-				padding: 1em;
-			}
-			header#masthead {
-				h1.site-title {
-					font-size: 5em;
-					font-weight: 200;
-					margin: 0;
-					padding: 0;
-					a {
-						color: $dark-orange;
-					}
-				}
-			}
-			footer#colophon {
-				div#social-menu {
-					ul.social-links {
-						margin: 0;
-						padding: 0;
-						li {
-							display: inline-block;
-						}
-					}
-				}
-			}
-			div#content {
-				line-height: 1.5;
-				font-weight: 400;
-				padding: 1em 3em;
-				div#secondary {
-					div#home-social-links {
-						ul.social-links-list {
-							list-style: none;
-							li {
-								display: inline-block;
-								float: none;
-								text-align: center;
-								a {
-									color: $dark-orange;
-									&:hover {
-										color: shade($dark-orange, 40%);
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
-ul {
-	list-style: none;
-}
-.screen-reader-text,
-.hidden {
-	@include hide-visually;
-}
-pre {
-	margin: 1em;
-	padding: 0.7em;
-	max-width: 90vw;
-	background-color: $light-grey;
-	color: $light-orange;
-	font-size: 1.4em;
-	font-family: 'Red Hat Mono', monospace;
-}
-div#backtotop {
-	color: $light-orange !important;
-	& a {
-		position: fixed;
-		right: 2em;
-		bottom: 2em;
-		border-radius: 100%;
-		background-color: $dark-orange;
-		padding: 0.5rem;
-		border: none;
-		cursor: pointer;
-		display: block;
-		width: 3em;
-		height: 3em;
-		color: $dark-grey;
-	}
-}
-.inline-svg {
-	display: inline-block;
-	height: 3em;
-	width: 3em;
-	margin-right: 1em;
-	top: 0.15em;
-	position: relative;
-}
+	@import 'base/reset';
+	@import 'base/page';
+	@import 'base/typography';
+
+// Component.
+
+	@import 'components/row';
+	@import 'components/section';
+	@import 'components/form';
+	@import 'components/box';
+	@import 'components/icon';
+	@import 'components/image';
+	@import 'components/list';
+	@import 'components/actions';
+	@import 'components/icons';
+	@import 'components/pagination';
+	@import 'components/table';
+	@import 'components/button';
+	@import 'components/tiles';
+	@import 'components/contact-method';
+	@import 'components/spotlights';
+
+// Layout.
+
+	@import 'layout/header';
+	@import 'layout/banner';
+	@import 'layout/main';
+	@import 'layout/contact';
+	@import 'layout/footer';
+	@import 'layout/wrapper';
+	@import 'layout/menu';

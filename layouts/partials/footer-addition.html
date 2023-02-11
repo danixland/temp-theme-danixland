@@ -1,5 +1,15 @@
 <!-- here will appear eventual js code and other additions to the footer -->
 <div id="backtotop">
 	{{$name := "arrow-up"}}
-	<a href="#top">{{ partial "funcs/svg.html" (dict "context" . "username" $name) }}<span class="screen-reader-text">back to top</span></a>
+	<a class="scrolly" href="#main">{{ partial "funcs/svg.html" (dict "context" . "username" $name) }}<span class="screen-reader-text">back to top</span></a>
 </div>
+<!-- Scripts -->
+
+<script type="text/javascript" src="{{ "js/jquery.min.js" | absURL }}"></script>
+<script type="text/javascript" src="{{ "js/jquery.scrolly.min.js" | absURL }}"></script>
+<script type="text/javascript" src="{{ "js/jquery.scrollex.min.js" | absURL }}"></script>
+<script type="text/javascript" src="{{ "js/browser.min.js" | absURL }}"></script>
+<script type="text/javascript" src="{{ "js/breakpoints.min.js" | absURL }}"></script>
+<script type="text/javascript" src="{{ "js/util.js" | absURL }}"></script>
+<script type="text/javascript" src="{{ "js/main.js" | absURL }}"></script>
+
