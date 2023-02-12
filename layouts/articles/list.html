@@ -1,18 +1,40 @@
-{{ define "main" }}
-<article class="single-page">
-	<div id="page-content">
-		{{ .Content }}
-	</div>
-</article>
-<ul>
+{{ define "blog-list" }}
+<section id="one">
+	<article>
+		<div class="inner">
+			{{ .Content }}
+		</div>
+	</article>
+</section>
+<section id="two" class="spotlights">
 	<!-- Ranges through content/posts/*.md -->
 	{{ range .Pages }}
-	<li>
-		<div>
-			<h3 class="article-title"><a href="{{.Permalink}}">{{.Title}}</a></h3>
-			<p class="byline">by {{ .Params.Author }} on {{.Date.Format "01-02-2006"}}</p>
+	<section>
+		<a class="image" href="{{.Permalink}}">
+			<img src="{{ "bg/bg2.jpg" | absURL}}" alt="suca">
+		</a>
+		<div class="content">
+			<div class="inner">
+				<header class="major">
+					<h3>
+					{{ if gt (len .Title) 40 }}
+						{{ $first50 := ( substr .Title 0 40 ) }}
+						{{ $lastChars := ( substr .Title 40 ) }}
+						{{ $newLine := "<br>" }}
+						{{ $newTitle := ( printf "%s" $lastChars | printf "%s%s" $newLine | printf "%s%s" $first50  ) }}
+						{{ $newTitle | safeHTML }}
+					{{ else }}
+						{{ .Title }}
+					{{ end }}
+					</h3>
+				</header>
+				<p>here goes an abstract</p>
+				<ul class="actions">
+					<li><a href="{{.Permalink}}" class="button">Read More</a></li>
+				</ul>
+			</div>
 		</div>
-	</li>
+	</section>
 	{{ end }}
-</ul>
+</section>
 {{ end }}

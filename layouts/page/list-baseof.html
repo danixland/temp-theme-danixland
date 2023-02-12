@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ $.Site.LanguageCode | default "en" }}">
 	{{- partial "head.html" . -}}
-	<body class="blog is-preload">
+	<body class="page-list is-preload">
 		<a id="top" class="skip-link screen-reader-text" href="#primary">skip to content</a>
 		<div id="wrapper">
 			{{- partial "header.html" . -}}
@@ -19,7 +19,7 @@
 				</div>
 			</section>
 			<div id="main">
-				{{- block "list-main" . }}{{- end }}
+				{{- block "page-list-main" . }}{{- end }}
 			</div>
 			{{- partial "footer.html" . -}}
 		</div>
