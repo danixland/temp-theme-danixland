@@ -10,6 +10,7 @@
 		$body = $('body'),
 		$wrapper = $('#wrapper'),
 		$header = $('#header'),
+		$btt = $('#backtotop'),
 		$banner = $('#banner');
 
 	// Breakpoints.
@@ -331,5 +332,14 @@
 						$menu._hide();
 
 			});
+
+	// backtotop
+	$(window).scroll( function(){
+	    if( $(window).scrollTop() > 150 ){
+	        $btt.removeClass("hidden");
+	    } else {
+	        $btt.addClass("hidden");
+	    }
+	});
 
 })(jQuery);

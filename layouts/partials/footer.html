@@ -1,12 +1,14 @@
-<footer id="colophon" class="site-footer">
-	<div id="footer-content">
+<footer id="footer" class="site-footer">
+	<div class="inner">
 		<p>Copyright &copy; {{ partial "funcs/year.html" }} <a href="{{- $.Site.Params.author_url -}}" target="_blank">{{- $.Site.Params.author_name -}}</a></p>
+		<div class="row">
+			<div class="col-8 col-12-medium">
+				<ul>
+					<li><a href="{{.Site.BaseURL}}sitemap.xml" target="_blank">sitemap</a></li>
+					<li><a href="{{ ref . "legal" }}">Privacy Policy</a></li>
+				</ul>
+			</div>
+			{{- partial "funcs/social-menu.html" . -}}
+		</div>
 	</div>
-	<div>
-		<ul>
-			<li><a href="{{.Site.BaseURL}}sitemap.xml" target="_blank">sitemap</a></li>
-			<li><a href="{{ ref . "legal" }}">Privacy Policy</a></li>
-		</ul>
-	</div>
-	{{- partial "funcs/social-menu.html" . -}}
 </footer>

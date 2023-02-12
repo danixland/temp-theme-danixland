@@ -1,6 +1,6 @@
 {{ with .Site.Social }}
-<div id="social-menu">
-	<ul class="icons">
+<div class="col-4 col-12-medium">
+	<ul class="footer-socials">
 		<li class="social-link social-spotify">
 			{{$spotify := "spotify"}}
 			<a href="https://spotify.com/{{ .spotify }}" target="_blank">{{ partial "funcs/svg.html" (dict "context" . "username" $spotify) }}</a>

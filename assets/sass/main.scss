@@ -1,3 +1,6 @@
+// BOURBON 
+@import "bourbon/bourbon";
+// HTML5UP
 @import 'libs/vars';
 @import 'libs/functions';
 @import 'libs/mixins';
@@ -5,8 +8,6 @@
 @import 'libs/vendor';
 @import 'libs/breakpoints';
 @import 'libs/html-grid';
-// MY COLOR DEFINITIONS
-@import "colors";
 // GOOGLE FONTS
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,600;1,400;1,600&family=Red+Hat+Mono&display=swap');
 

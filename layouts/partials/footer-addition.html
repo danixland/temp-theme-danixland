@@ -1,5 +1,5 @@
 <!-- here will appear eventual js code and other additions to the footer -->
-<div id="backtotop">
+<div id="backtotop" class="hidden">
 	{{$name := "arrow-up"}}
 	<a class="scrolly" href="#main">{{ partial "funcs/svg.html" (dict "context" . "username" $name) }}<span class="screen-reader-text">back to top</span></a>
 </div>
