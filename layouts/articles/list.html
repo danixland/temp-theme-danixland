@@ -5,13 +5,18 @@
 			{{ .Content }}
 		</div>
 	</article>
+	<article>
+		<div class="inner">
+			{{ partial "pagination.html" . }}
+		</div>
+	</article>
 </section>
 <section id="two" class="spotlights">
 	<!-- Ranges through content/posts/*.md -->
-	{{ range .Pages }}
+	{{ range .Paginator.Pages }}
 	<section>
 		<a class="image" href="{{.Permalink}}">
-			<img src="{{ "bg/bg2.jpg" | absURL}}" alt="suca">
+			<img src="{{ .Params.featured_image | absURL}}" alt=".Title">
 		</a>
 		<div class="content">
 			<div class="inner">
@@ -28,7 +33,7 @@
 					{{ end }}
 					</h3>
 				</header>
-				<p>here goes an abstract</p>
+				<p>{{ .Params.excerpt }}</p>
 				<ul class="actions">
 					<li><a href="{{.Permalink}}" class="button">Read More</a></li>
 				</ul>
@@ -36,5 +41,10 @@
 		</div>
 	</section>
 	{{ end }}
+</section>
+<section id="three">
+	<div class="inner">
+		{{ partial "pagination.html" . }}
+	</div>
 </section>
 {{ end }}

@@ -1,9 +1,8 @@
 <div id="breadcrumbs">
-    <p>You're in: </p>
     <ol class="crumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
         {{- /* declare a 'variable' to store the each link position */}}
         {{- $data := newScratch }}
-
+        <li>You're in: </li>
         {{- range $index, $value := .Ancestors.Reverse }}
             <li class="crumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                 {{- /* read the index from loop and add 'one', because it starts counting from zero */}}
@@ -18,6 +17,7 @@
                 </a>
                 {{- /* pass the counter value into schema attribute */}}
                 <meta itemprop="position" content='{{ $data.Get "counter"}}' />
+                <span class="divider"> / </span>
             </li>         
         {{- end }}
             <li class="crumb-item active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">

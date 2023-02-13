@@ -1,0 +1,8 @@
+	<ul class="prev-next align-center">
+		{{with .NextInSection }}
+			<li><a class="button small" href="{{.RelPermalink}}">Next Article</a></li>
+		{{end}}
+		{{with .PrevInSection }}
+			<li><a class="button small" href="{{.RelPermalink}}">Previous Article</a></li>
+		{{end}}
+	</ul>

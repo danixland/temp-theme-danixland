@@ -5,6 +5,16 @@
 		<a id="top" class="skip-link screen-reader-text" href="#primary">skip to content</a>
 		<div id="wrapper">
 			{{- partial "header.html" . -}}
+			<section id="banner" class="major">
+				<div class="inner">
+					<header class="major">
+						<h1>{{ .Site.Title }}</h1>
+					</header>
+					<div class="content">
+						<p>{{ .Site.Params.Description }}</p>
+					</div>
+				</div>
+			</section>
 			<div id="main">
 				{{- block "page-main" . }}{{- end }}
 			</div>

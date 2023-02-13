@@ -1,19 +1,38 @@
 <!DOCTYPE html>
 <html lang="{{ $.Site.LanguageCode | default "en" }}">
 	{{- partial "head.html" . -}}
-	<body class="page home">
-		<div id="page">
-			<a id="top" class="skip-link screen-reader-text" href="#primary">skip to content</a>
+	<body class="article is-preload">
+		<a id="top" class="skip-link screen-reader-text" href="#primary">skip to content</a>
+		<div id="wrapper">
 			{{- partial "header.html" . -}}
-			{{- partial "breadcrumbs.html" . -}}
-			<div id="content" class="site-content">
-				<div id="primary" class="content-area">
-					<main id="main" class="site-main">
-						{{- block "page-main" . }}{{- end }}
-					</main>
+
+			<section id="banner" class="major">
+				<div class="inner">
+					<header class="major">
+						<h1>{{ .Title }}</h1>
+					</header>
+					<div class="content">
+						<p>{{ .Params.excerpt }}</p>
+					</div>
 				</div>
+			</section>
+
+			<div id="main">
+				<section id="one">
+					<div class="inner">
+						{{- partial "breadcrumbs.html" . -}}
+						{{- partial "prev-next.html" . -}}
+					</div>
+				</section>
+				<section id="two">
+					{{- block "article-main" . }}{{- end }}
+				</section>
+				<section id="three">
+					<div class="inner">articoli correlati</div>
+				</section>
 			</div>
 			{{- partial "footer.html" . -}}
 		</div>
+		{{- partial "footer-addition.html" . -}}
 	</body>
 </html>

@@ -1,5 +1,3 @@
-// BOURBON 
-@import "bourbon/bourbon";
 // HTML5UP
 @import 'libs/vars';
 @import 'libs/functions';
@@ -57,6 +55,7 @@
 	@import 'components/actions';
 	@import 'components/icons';
 	@import 'components/pagination';
+	@import 'components/breadcrumbs';
 	@import 'components/table';
 	@import 'components/button';
 	@import 'components/tiles';
