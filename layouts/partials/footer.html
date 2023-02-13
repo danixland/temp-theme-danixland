@@ -4,6 +4,9 @@
 		<div class="row">
 			<div class="col-8 col-12-medium">
 				<ul>
+					{{ with .OutputFormats.Get "rss" -}}
+					<li>{{ printf `<a href="%s" title="%s" target="_blank">RSS Feed</a>` .Permalink $.Site.Title | safeHTML }}</li>
+					{{ end -}}
 					<li><a href="{{.Site.BaseURL}}sitemap.xml" target="_blank">sitemap</a></li>
 					<li><a href="{{ ref . "legal" }}">Privacy Policy</a></li>
 				</ul>
