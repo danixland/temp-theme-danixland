@@ -157,3 +157,12 @@
     }
   }
 }
+
+@mixin circle($size, $display) {
+  width: $size;
+  height: $size;
+  display: $display;
+  -webkit-border-radius: $size/2;
+  -moz-border-radius: $size/2;
+  border-radius: $size/2;
+}

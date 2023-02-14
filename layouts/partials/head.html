@@ -6,7 +6,11 @@
 	{{ $style_options := (dict "targetPath" "css/style.css" "outputStyle" "compressed" "transpiler" "dartsass" "enableSourceMap" (not hugo.IsProduction)) }}
 	{{ $style := resources.Get "sass/main.scss" | resources.ToCSS $style_options }}
 
+	{{ $noscript_options := (dict "targetPath" "css/noscript.css" "outputStyle" "compressed" "transpiler" "dartsass" "enableSourceMap" (not hugo.IsProduction)) }}
+	{{ $noscript := resources.Get "sass/noscript.scss" | resources.ToCSS $noscript_options }}
+
 	<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+	<noscript><link rel="stylesheet" href="{{ $noscript.RelPermalink }}" /></noscript>
 	{{ partial "funcs/favicon.html" . }}
 	<link rel="canonical" href="{{ .Permalink }}">
 

@@ -1,6 +1,5 @@
 <footer id="footer" class="site-footer">
 	<div class="inner">
-		<p>Copyright &copy; {{ partial "funcs/year.html" }} <a href="{{- $.Site.Params.author_url -}}" target="_blank">{{- $.Site.Params.author_name -}}</a></p>
 		<div class="row">
 			<div class="col-8 col-12-medium">
 				<ul>
@@ -13,5 +12,6 @@
 			</div>
 			{{- partial "funcs/social-menu.html" . -}}
 		</div>
+		<p class="copyright">Copyright &copy; {{ partial "funcs/year.html" }} <a href="{{- $.Site.Params.author_url -}}" target="_blank">{{- $.Site.Params.author_name -}}</a></p>
 	</div>
 </footer>

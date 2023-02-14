@@ -60,3 +60,7 @@
 			}
 		}
 	}
+
+	.circle > img {
+		@include circle(200px, "block")
+	}
