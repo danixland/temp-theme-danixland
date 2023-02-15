@@ -58,12 +58,44 @@
 		}
 	}
 
-	ul.footer-socials {
+	ul.social-sharer {
 		cursor: default;
 		list-style: none;
 		padding-left: 0;
 
-		li.social-link {
+		li {
+			display: inline-block;
+			padding: 0 1em 0 0;
+
+			&:last-child {
+				padding-right: 0;
+			}
+			a {
+				border-bottom: none;
+				text-decoration: none;
+				span.inline-svg {
+					svg {
+						width: 4rem;
+						height: 4rem;
+					}
+				}
+			}
+		}
+
+		@include breakpoint('<=small') {
+			li {
+				padding: 0 0.75em 0 0;
+			}
+		}
+	}
+
+	ul.footer-socials,
+	ul.footer-tools {
+		cursor: default;
+		list-style: none;
+		padding-left: 0;
+
+		li {
 			display: inline-block;
 			padding: 0 1em 0 0;
 

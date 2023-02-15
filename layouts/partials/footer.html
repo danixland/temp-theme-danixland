@@ -1,17 +1,20 @@
 <footer id="footer" class="site-footer">
 	<div class="inner">
 		<div class="row">
-			<div class="col-8 col-12-medium">
-				<ul>
+			<div class="col-4 col-12-medium">
+				<ul class="footer-tools">
 					{{ with .OutputFormats.Get "rss" -}}
-					<li>{{ printf `<a href="%s" title="%s" target="_blank">RSS Feed</a>` .Permalink $.Site.Title | safeHTML }}</li>
+					<li><a href="{{.Permalink}}" title="{{$.Site.Title}}" target="_blank">{{- partial "funcs/svg.html" (dict "context" . "username" "rss") -}}<span class="screen-reader-text">RSS Feed</span></a></li>
 					{{ end -}}
-					<li><a href="{{.Site.BaseURL}}sitemap.xml" target="_blank">sitemap</a></li>
-					<li><a href="{{ ref . "legal" }}">Privacy Policy</a></li>
+					<li><a href="{{.Site.BaseURL}}sitemap.xml" target="_blank">{{- partial "funcs/svg.html" (dict "context" . "username" "sitemap") -}}<span class="screen-reader-text">sitemap</span></a></li>
+					<li><a href="{{ ref . "legal" }}">{{- partial "funcs/svg.html" (dict "context" . "username" "lock-open") -}}<span class="screen-reader-text">Privacy Policy</span></a></li>
 				</ul>
+			</div>
+			<div class="col-4 col-12-medium copyright align-center">
+				<p>made with <a title="hugo" href="https://gohugo.io/" target="_blank"><span class="hugo">{{- partial "funcs/svg.html" (dict "context" . "username" "hugo") -}}</span></a>, sprinkled with <a title="html5" href="https://html.spec.whatwg.org/multipage/" target="_blank"> {{- partial "funcs/svg.html" (dict "context" . "username" "html5") -}}</a> <a title="css3" href="https://www.w3.org/Style/CSS/Overview.en.html" target="_blank">{{- partial "funcs/svg.html" (dict "context" . "username" "css3") -}}</a> <a title="javascript" href="https://262.ecma-international.org/13.0/" target="_blank">{{- partial "funcs/svg.html" (dict "context" . "username" "js") -}}</a> <a title="git" href="https://git-scm.com/" target="_blank">{{- partial "funcs/svg.html" (dict "context" . "username" "git") -}}</a> <br /> and mixed with lots of {{- partial "funcs/svg.html" (dict "context" . "username" "heart") -}}, lack of {{- partial "funcs/svg.html" (dict "context" . "username" "bed") -}} and liters of {{- partial "funcs/svg.html" (dict "context" . "username" "coffee") -}}</p>
 			</div>
 			{{- partial "funcs/social-menu.html" . -}}
 		</div>
-		<p class="copyright">Copyright &copy; {{ partial "funcs/year.html" }} <a href="{{- $.Site.Params.author_url -}}" target="_blank">{{- $.Site.Params.author_name -}}</a></p>
+		{{- partial "copyright.html" . -}}
 	</div>
 </footer>

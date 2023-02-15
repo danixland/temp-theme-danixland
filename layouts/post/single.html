@@ -1,8 +1,7 @@
 {{ define "article-main" }}
-<article>
 	<div class="inner">
 		<p>{{ .Content }}</p>
 		<p>firma e metadata</p>
+		<p>{{- partial "funcs/share-on-socials.html" . -}}</p>
 	</div>
-</article>
 {{ end }}

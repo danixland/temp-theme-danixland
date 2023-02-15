@@ -10,6 +10,7 @@
 	{{ $noscript := resources.Get "sass/noscript.scss" | resources.ToCSS $noscript_options }}
 
 	<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+	<link rel="stylesheet" href="{{ "syntax.css" |relURL }}">
 	<noscript><link rel="stylesheet" href="{{ $noscript.RelPermalink }}" /></noscript>
 	{{ partial "funcs/favicon.html" . }}
 	<link rel="canonical" href="{{ .Permalink }}">
@@ -18,7 +19,7 @@
 	    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 	{{ end -}}
 
-    {{ $title := print .Site.Title " ⋇ " .Title }}
+    {{ $title := print .Site.Title " &hybull; " .Title | safeHTML }}
     {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
     <title>{{ $title }}</title>
 

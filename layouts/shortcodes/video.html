@@ -31,6 +31,6 @@
 	{{ if eq (.Get "autoplay") "true" }}autoplay {{ end }}
 	{{ if eq (.Get "loop") "true" }}loop {{ end }}
 	{{ if eq (.Get "muted") "true" }}muted {{ end }}
-	playsinline class="html-video" >
+	playsinline >
     <source src="{{ ( .Get "src" ) }}" type="video/{{ $filetype }}">
 </video>

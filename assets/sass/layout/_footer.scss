@@ -11,32 +11,24 @@
 			font-size: 0.8em;
 			list-style: none;
 			padding-left: 0;
-
-			li {
-				border-left: solid 1px _palette(border);
-				color: _palette(fg-light);
-				display: inline-block;
-				line-height: 1;
-				margin-left: 1em;
-				padding-left: 1em;
-
-				&:first-child {
-					border-left: 0;
-					margin-left: 0;
-					padding-left: 0;
+			span.inline-svg {
+				svg {
+					width: 1em;
+					height: 1em;
+				}
+			}
+			span.hugo {
+				span.inline-svg {
+					svg {
+						height: 1em;
+						width: auto;
+					}
 				}
 			}
 		}
 
 		@include breakpoint('<=xsmall') {
 			.copyright {
-				li {
-					display: block;
-					border-left: 0;
-					margin-left: 0;
-					padding-left: 0;
-					line-height: inherit;
-				}
 			}
 		}
 	}

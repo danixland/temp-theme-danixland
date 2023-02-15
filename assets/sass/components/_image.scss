@@ -64,3 +64,24 @@
 	.circle > img {
 		@include circle(200px, "block")
 	}
+
+	video {
+		display: block !important;
+		&.left {
+			float: left;
+			margin: 0 1.5em 1.25em 0;
+			top: 0.25em;
+		}
+
+		&.right {
+			float: right;
+			margin: 0 0 1.25em 1.5em;
+			top: 0.25em;
+		}
+
+		&.fit {
+			display: block;
+			margin: 0 0 _size(element-margin) 0;
+			width: 100%;
+		}
+	}
