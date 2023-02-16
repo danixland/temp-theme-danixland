@@ -10,7 +10,7 @@
 	{{ $noscript := resources.Get "sass/noscript.scss" | resources.ToCSS $noscript_options }}
 
 	<link rel="stylesheet" href="{{ $style.RelPermalink }}">
-	<link rel="stylesheet" href="{{ "syntax.css" |relURL }}">
+	<link rel="stylesheet" href="{{ "css/syntax.css" |relURL }}">
 	<noscript><link rel="stylesheet" href="{{ $noscript.RelPermalink }}" /></noscript>
 	{{ partial "funcs/favicon.html" . }}
 	<link rel="canonical" href="{{ .Permalink }}">
