@@ -16,7 +16,12 @@
 	{{ range .Paginator.Pages }}
 	<section>
 		<a class="image" href="{{.Permalink}}">
-			<img src="{{ .Params.featured_image | absURL}}" alt=".Title">
+		{{ if isset .Params "featured_image" }}
+			<img src="{{ .Params.featured_image | absURL}}" alt="{{.Title}}">
+		{{ else }}
+			{{ $default_image := resources.Get "img/default_article.jpg" }} 
+			<img src="{{ $default_image.Permalink }}" alt="{{.Title}}">
+		{{ end }}
 		</a>
 		<div class="content">
 			<div class="inner">
