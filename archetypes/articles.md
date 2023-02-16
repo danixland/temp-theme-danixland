@@ -5,7 +5,7 @@ draft: true
 author: "{{ $.Site.Params.author_name }}"
 format: ""
 excerpt: ""
-featured_image: ""
+featured_image: "/img/default_article.jpg"
 categories:
   - "add"
   - "yours"
