@@ -176,3 +176,9 @@
 	.hidden {
 		@include hide-visually;
 	}
+
+	// large code blocks are wrapped in the highlight shortcode
+	.highlight {
+		max-width: 100%;
+		overflow-x: auto;
+	}
