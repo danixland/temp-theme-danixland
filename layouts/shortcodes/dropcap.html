@@ -9,6 +9,6 @@
 	* 
 	*/}}
 
-<p class="has-drop-cap" {{ if .Get "class"}}class="{{ with .Get "class"}}{{.}}{{ end }}"{{end}}>
+<p class="has-dropcap {{ with .Get "class"}}{{.}}{{ end }}">
 	{{ .Inner }}
 </p>

@@ -182,3 +182,13 @@
 		max-width: 100%;
 		overflow-x: auto;
 	}
+
+	.has-dropcap:first-letter {
+		font-family: _font(family-fixed);
+		font-weight: 900;
+		float: left;
+		font-size: 6rem;
+		line-height: 0.65;
+		margin: 0.1em 0.1em 0.2em 0;
+	}
+
