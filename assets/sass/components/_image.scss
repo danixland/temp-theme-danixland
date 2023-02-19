@@ -62,7 +62,8 @@
 	}
 
 	.circle > img {
-		@include circle(200px, "block")
+		@include circle(200px, "block");
+		@include box-shadow(-5px, 5px, 5px, _palette(fg-bold));
 	}
 
 	video {

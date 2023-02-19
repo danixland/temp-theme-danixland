@@ -166,3 +166,22 @@
   -moz-border-radius: $size/2;
   border-radius: $size/2;
 }
+
+// box-shadow
+// top and left are  the anchor point from where to start moving the shadow
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+    @if unitless($top) or unitless($left) or unitless($blur) {
+        $top: $top * 1px;
+        $left: $left * 1px;
+        $blur: $blur * 1px;
+    }
+    @if $inset {
+        -webkit-box-shadow:inset $top $left $blur $color;
+        -moz-box-shadow:inset $top $left $blur $color;
+        box-shadow:inset $top $left $blur $color;
+    } @else {
+        -webkit-box-shadow: $top $left $blur $color;
+        -moz-box-shadow: $top $left $blur $color;
+        box-shadow: $top $left $blur $color;
+    }
+}
