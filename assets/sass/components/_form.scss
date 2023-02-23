@@ -76,6 +76,9 @@
 		letter-spacing: _font(letter-spacing-alt);
 		margin: 0 0 (_size(element-margin) * 0.5) 0;
 		text-transform: uppercase;
+		@media screen and (prefers-color-scheme: dark) {
+			color: _palette_dark(fg-bold);
+		}
 	}
 
 	input[type="text"],
@@ -96,6 +99,9 @@
 		padding: 0 1em;
 		text-decoration: none;
 		width: 100%;
+		@media screen and (prefers-color-scheme: dark) {
+			background: _palette_dark(border-bg);
+		}
 
 		&:invalid {
 			box-shadow: none;
@@ -104,6 +110,10 @@
 		&:focus {
 			border-color: _palette_light(highlight);
 			box-shadow: 0 0 0 2px _palette_light(highlight);
+			@media screen and (prefers-color-scheme: dark) {
+				border-color: _palette_dark(highlight);
+				box-shadow: 0 0 0 2px _palette_dark(highlight);
+			}
 		}
 	}
 
@@ -115,10 +125,17 @@
 		height: _size(element-height);
 		padding-right: _size(element-height);
 		text-overflow: ellipsis;
+		@media screen and (prefers-color-scheme: dark) {
+			background-image: svg-url("<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' preserveAspectRatio='none' viewBox='0 0 40 40'><path d='M9.4,12.3l10.4,10.4l10.4-10.4c0.2-0.2,0.5-0.4,0.9-0.4c0.3,0,0.6,0.1,0.9,0.4l3.3,3.3c0.2,0.2,0.4,0.5,0.4,0.9 c0,0.4-0.1,0.6-0.4,0.9L20.7,31.9c-0.2,0.2-0.5,0.4-0.9,0.4c-0.3,0-0.6-0.1-0.9-0.4L4.3,17.3c-0.2-0.2-0.4-0.5-0.4-0.9 c0-0.4,0.1-0.6,0.4-0.9l3.3-3.3c0.2-0.2,0.5-0.4,0.9-0.4S9.1,12.1,9.4,12.3z' fill='#{_palette_dark(border)}' /></svg>");
+		}
 
 		option {
 			color: _palette_light(fg-bold);
 			background: _palette_light(bg);
+			@media screen and (prefers-color-scheme: dark) {
+				color: _palette_dark(fg-bold);
+				background: _palette_dark(bg);
+			}
 		}
 
 		&:focus {
@@ -165,6 +182,9 @@
 			padding-left: (_size(element-height) * 0.6) + 1em;
 			padding-right: 0.75em;
 			position: relative;
+			@media screen and (prefers-color-scheme: dark) {
+				color: _palette_dark(fg);
+			}
 
 			&:before {
 				background: _palette_light(border-bg);
@@ -179,6 +199,9 @@
 				text-align: center;
 				top: 0;
 				width: (_size(element-height) * 0.75);
+				@media screen and (prefers-color-scheme: dark) {
+					background: _palette_dark(border-bg);
+				}
 			}
 		}
 
@@ -188,12 +211,20 @@
 				border-color: _palette_light(highlight);
 				content: '\f00c';
 				color: _palette_light(bg);
+				@media screen and (prefers-color-scheme: dark) {
+					background: _palette_dark(fg-bold);
+					border-color: _palette_dark(highlight);
+					color: _palette_dark(bg);
+				}
 			}
 		}
 
 		&:focus + label {
 			&:before {
 				box-shadow: 0 0 0 2px _palette_light(highlight);
+				@media screen and (prefers-color-scheme: dark) {
+					box-shadow: 0 0 0 2px _palette_dark(highlight);
+				}
 			}
 		}
 	}
@@ -216,19 +247,31 @@
 	::-webkit-input-placeholder {
 		color: _palette_light(fg-light) !important;
 		opacity: 1.0;
+		@media screen and (prefers-color-scheme: dark) {
+			color: _palette_dark(fg-light) !important;
+		}
 	}
 
 	:-moz-placeholder {
 		color: _palette_light(fg-light) !important;
 		opacity: 1.0;
+		@media screen and (prefers-color-scheme: dark) {
+			color: _palette_dark(fg-light) !important;
+		}
 	}
 
 	::-moz-placeholder {
 		color: _palette_light(fg-light) !important;
 		opacity: 1.0;
+		@media screen and (prefers-color-scheme: dark) {
+			color: _palette_dark(fg-light) !important;
+		}
 	}
 
 	:-ms-input-placeholder {
 		color: _palette_light(fg-light) !important;
 		opacity: 1.0;
+		@media screen and (prefers-color-scheme: dark) {
+			color: _palette_dark(fg-light) !important;
+		}
 	}
