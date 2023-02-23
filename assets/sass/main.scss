@@ -70,3 +70,12 @@
 	@import 'layout/footer';
 	@import 'layout/wrapper';
 	@import 'layout/menu';
+
+// darken images in dark mode
+@media screen and (prefers-color-scheme: dark) {
+	$image-filter: grayscale(50%);
+
+	img:not([src*='.svg']) {
+	  filter: $image-filter;
+	}
+}

@@ -65,7 +65,7 @@
 		@include circle(200px, "block");
 		@include box-shadow(-5px, 5px, 5px, _palette_light(fg-bold));
 		@media screen and (prefers-color-scheme: dark) {
-			@include box-shadow(-5px, 5px, 5px, _palette_dark(fg-bold));
+			@include box-shadow(-5px, 5px, 5px, _palette_light(fg-bold));
 		}
 	}
 
