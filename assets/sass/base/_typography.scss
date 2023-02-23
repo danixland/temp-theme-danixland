@@ -7,7 +7,10 @@
 /* Type */
 
 	body, input, select, textarea {
-		color: _palette(fg);
+		color: _palette_light(fg);
+		@media screen and (prefers-color-scheme: dark) {
+			color: _palette_dark(fg);
+		}
 		font-family: _font(family);
 		font-size: 17pt;
 		font-weight: _font(weight);
@@ -38,16 +41,25 @@
 
 		&:hover {
 			border-bottom-color: transparent;
-			color: _palette(highlight) !important;
+			color: _palette_light(highlight) !important;
+			@media screen and (prefers-color-scheme: dark) {
+				color: _palette_dark(highlight);
+			}
 		}
 
 		&:active {
-			color: desaturate(darken(_palette(highlight), 15), 5) !important;
+			color: desaturate(darken(_palette_light(highlight), 15), 5) !important;
+			@media screen and (prefers-color-scheme: dark) {
+				color: desaturate(darken(_palette_dark(highlight), 15), 5) !important;
+			}
 		}
 	}
 
 	strong, b {
-		color: _palette(fg-bold);
+		color: _palette_light(fg-bold);
+		@media screen and (prefers-color-scheme: dark) {
+			color: _palette_dark(fg-bold);
+		}
 		font-weight: _font(weight-bold);
 	}
 
@@ -60,7 +72,10 @@
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: _palette(fg-bold);
+		color: _palette_light(fg-bold);
+		@media screen and (prefers-color-scheme: dark) {
+			color: _palette_dark(fg-bold);
+		}
 		font-weight: _font(weight-bold);
 		line-height: 1.65;
 		margin: 0 0 (_size(element-margin) * 0.5) 0;
@@ -122,14 +137,20 @@
 	}
 
 	blockquote {
-		border-left: solid 4px _palette(border);
+		border-left: solid 4px _palette_light(border);
+		@media screen and (prefers-color-scheme: dark) {
+			border-left: solid 4px _palette_dark(border);
+		}
 		font-style: italic;
 		margin: 0 0 _size(element-margin) 0;
 		padding: (_size(element-margin) / 4) 0 (_size(element-margin) / 4) _size(element-margin);
 	}
 
 	code {
-		background: _palette(border-bg);
+		background: _palette_light(border-bg);
+		@media screen and (prefers-color-scheme: dark) {
+			background: _palette_dark(border-bg);
+		}
 		font-family: _font(family-fixed);
 		font-size: 0.9em;
 		margin: 0 0.25em;
@@ -152,7 +173,10 @@
 
 	hr {
 		border: 0;
-		border-bottom: solid 1px _palette(border);
+		border-bottom: solid 1px _palette_light(border);
+		@media screen and (prefers-color-scheme: dark) {
+			border-bottom: solid 1px _palette_dark(border);
+		}
 		margin: _size(element-margin) 0;
 
 		&.major {

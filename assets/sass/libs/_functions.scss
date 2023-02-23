@@ -75,11 +75,18 @@
 	@return val($misc, $keys...);
 }
 
-/// Gets a palette value.
+/// Gets a dark palette value.
 /// @param {string} $keys Key(s).
 /// @return {string} Value.
-@function _palette($keys...) {
-	@return val($palette, $keys...);
+@function _palette_dark($keys...) {
+	@return val($palette_dark, $keys...);
+}
+
+/// Gets a light palette value.
+/// @param {string} $keys Key(s).
+/// @return {string} Value.
+@function _palette_light($keys...) {
+		@return val($palette_light, $keys...);
 }
 
 /// Gets a size value.

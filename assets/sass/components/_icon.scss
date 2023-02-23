@@ -33,14 +33,18 @@
 
 		&.alt {
 			&:before {
-				background-color: _palette(fg-bold);
+				background-color: _palette_light(fg-bold);
 				border-radius: 100%;
-				color: _palette(bg);
+				color: _palette_light(bg);
 				display: inline-block;
 				height: 2em;
 				line-height: 2em;
 				text-align: center;
 				width: 2em;
+				@media screen and (prefers-color-scheme: dark) {
+					background-color: _palette_dark(fg-bold);
+					color: _palette_dark(bg);
+				}
 			}
 		}
 	}
@@ -53,13 +57,19 @@
 
 			&:hover {
 				&:before {
-					background-color: _palette(accent1);
+					background-color: _palette_light(accent1);
+					@media screen and (prefers-color-scheme: dark) {
+						background-color: _palette_dark(accent1);
+					}
 				}
 			}
 
 			&:active {
 				&:before {
-					background-color: desaturate(darken(_palette(accent1), 15), 5);
+					background-color: desaturate(darken(_palette_light(accent1), 15), 5);
+					@media screen and (prefers-color-scheme: dark) {
+						background-color: desaturate(darken(_palette_dark(accent1), 15), 5);
+					}
 				}
 			}
 		}

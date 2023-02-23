@@ -1,7 +1,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="color-scheme" content="light dark">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
+
 
 	{{ $style_options := (dict "targetPath" "css/style.css" "outputStyle" "compressed" "transpiler" "dartsass" "enableSourceMap" (not hugo.IsProduction)) }}
 	{{ $style := resources.Get "sass/main.scss" | resources.ToCSS $style_options }}

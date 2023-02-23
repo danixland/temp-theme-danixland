@@ -7,7 +7,10 @@
 /* Box */
 
 	.box {
-		border: solid 1px _palette(border);
+		border: solid 1px _palette_light(border);
+		@media screen and (prefers-color-scheme: dark) {
+			border-bottom: solid 1px _palette_dark(border);
+		}
 		margin-bottom: _size(element-margin);
 		padding: 1.5em;
 

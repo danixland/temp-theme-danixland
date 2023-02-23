@@ -7,8 +7,11 @@
 /* Contact */
 
 	#contact {
-		border-bottom: solid 1px _palette(border);
+		border-bottom: solid 1px _palette_light(border);
 		overflow-x: hidden;
+		@media screen and (prefers-color-scheme: dark) {
+			border-bottom: solid 1px _palette_dark(border);
+		}
 
 		> .inner {
 			@include vendor('display', 'flex');
@@ -16,8 +19,11 @@
 
 			> :nth-child(2n - 1) {
 				@include padding(4em, 0, (0, 3em, 0, 0));
-				border-right: solid 1px _palette(border);
+				border-right: solid 1px _palette_light(border);
 				width: 60%;
+				@media screen and (prefers-color-scheme: dark) {
+					border-right: solid 1px _palette_dark(border);
+				}
 			}
 
 			> :nth-child(2n) {
@@ -33,13 +39,16 @@
 					position: relative;
 
 					&:before {
-						border-top: solid 1px _palette(border);
+						border-top: solid 1px _palette_light(border);
 						content: '';
 						display: block;
 						margin-left: -3em;
 						position: absolute;
 						top: 0;
 						width: calc(100vw + 3em);
+						@media screen and (prefers-color-scheme: dark) {
+							border-top: solid 1px _palette_dark(border);
+						}
 					}
 				}
 

@@ -33,16 +33,27 @@
 				text-align: center;
 
 				&.active {
-					background-color: _palette(fg-bold);
-					color: _palette(bg);
+					background-color: _palette_light(fg-bold);
+					color: _palette_light(bg);
+					@media screen and (prefers-color-scheme: dark) {
+						background-color: _palette_dark(fg-bold);
+						color: _palette_dark(bg);
+					}
 
 					&:hover {
-						background-color: _palette(highlight);
-						color: _palette(bg) !important;
+						background-color: _palette_light(highlight);
+						color: _palette_light(bg) !important;
+						@media screen and (prefers-color-scheme: dark) {
+							background-color: _palette_dark(highlight);
+							color: _palette_dark(bg) !important;
+						}
 					}
 
 					&:active {
-						background-color: desaturate(darken(_palette(highlight), 15), 5);
+						background-color: desaturate(darken(_palette_light(highlight), 15), 5);
+						@media screen and (prefers-color-scheme: dark) {
+							background-color: desaturate(darken(_palette_dark(highlight), 15), 5);
+						}
 					}
 				}
 			}

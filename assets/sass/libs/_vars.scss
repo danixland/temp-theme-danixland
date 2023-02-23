@@ -28,20 +28,36 @@
 		letter-spacing-alt:	0.25em
 	);
 
-// Palette.
-	$palette: ( 
-		bg:					#D8D9CF,
-		bg-alt:				#F0EEED,
-		fg:					#393E46,
-		fg-bold:			#222831,
-		fg-light:			rgba(216,217,207,0.2),
-		border:				rgba(57,62,70,0.1),
-		border-bg:			rgba(34,40,49,0.035),
-		highlight:			#FD7014,
-		accent1:			#FF8B13,
-		accent2:			#CF4DCE,
-		accent3:			#F273E6,
-		accent4:			#e7b788,
-		accent5:			#8ea9e8,
-		accent6:			#609EA2
-	);
+	// Palette.
+		$palette_light: ( 
+			bg:					#D8D9CF,
+			bg-alt:				#F0EEED,
+			fg:					#393E46,
+			fg-bold:			#222831,
+			fg-light:			rgba(216,217,207,0.2),
+			border:				rgba(57,62,70,0.1),
+			border-bg:			rgba(34,40,49,0.035),
+			highlight:			#FD7014,
+			accent1:			#FF8B13,
+			accent2:			#CF4DCE,
+			accent3:			#F273E6,
+			accent4:			#e7b788,
+			accent5:			#8ea9e8,
+			accent6:			#609EA2
+		);
+		$palette_dark: ( 
+			bg:					#393E46,
+			bg-alt:				#222831,
+			fg:					#D8D9CF,
+			fg-bold:			#F0EEED,
+			fg-light:			rgba(216,217,207,0.2),
+			border:				rgba(57,62,70,0.1),
+			border-bg:			rgba(34,40,49,0.035),
+			highlight:			#FD7014,
+			accent1:			#FF8B13,
+			accent2:			#CF4DCE,
+			accent3:			#F273E6,
+			accent4:			#e7b788,
+			accent5:			#8ea9e8,
+			accent6:			#609EA2
+		);	

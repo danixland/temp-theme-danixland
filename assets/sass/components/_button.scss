@@ -20,8 +20,12 @@
 		background-color: transparent;
 		border: 0;
 		border-radius: 0;
-		box-shadow: inset 0 0 0 2px _palette(fg-bold);
-		color: _palette(fg-bold);
+		box-shadow: inset 0 0 0 2px _palette_light(fg-bold);
+		color: _palette_light(fg-bold);
+		@media screen and (prefers-color-scheme: dark) {
+			box-shadow: inset 0 0 0 2px _palette_dark(fg-bold);
+			color: _palette_dark(fg-bold);
+		}
 		cursor: pointer;
 		display: inline-block;
 		font-size: 0.8em;
@@ -36,14 +40,23 @@
 		white-space: nowrap;
 
 		&:hover, &:active {
-			box-shadow: inset 0 0 0 2px _palette(highlight);
-			color: _palette(highlight);
+			box-shadow: inset 0 0 0 2px _palette_light(highlight);
+			color: _palette_light(highlight);
+			@media screen and (prefers-color-scheme: dark) {
+				box-shadow: inset 0 0 0 2px _palette_dark(highlight);
+				color: _palette_dark(highlight);
+			}
 		}
 
 		&:active {
-			background-color: transparentize(_palette(highlight), 0.9);
-			box-shadow: inset 0 0 0 2px desaturate(darken(_palette(highlight), 15), 5);
-			color: desaturate(darken(_palette(highlight), 15), 5);
+			background-color: transparentize(_palette_light(highlight), 0.9);
+			box-shadow: inset 0 0 0 2px desaturate(darken(_palette_light(highlight), 15), 5);
+			color: desaturate(darken(_palette_light(highlight), 15), 5);
+			@media screen and (prefers-color-scheme: dark) {
+				background-color: transparentize(_palette_dark(highlight), 0.9);
+				box-shadow: inset 0 0 0 2px desaturate(darken(_palette_dark(highlight), 15), 5);
+				color: desaturate(darken(_palette_dark(highlight), 15), 5);
+			}
 		}
 
 		&.icon {
@@ -86,11 +99,17 @@
 			}
 
 			&:before {
-				background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36px" height="24px" viewBox="0 0 36 24" zoomAndPan="disable"><style>line { stroke: #{_palette(fg-bold)}; stroke-width: 2px; }</style><line x1="0" y1="12" x2="34" y2="12" /><line x1="25" y1="4" x2="34" y2="12.5" /><line x1="25" y1="20" x2="34" y2="11.5" /></svg>');
+				background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36px" height="24px" viewBox="0 0 36 24" zoomAndPan="disable"><style>line { stroke: #{_palette_light(fg-bold)}; stroke-width: 2px; }</style><line x1="0" y1="12" x2="34" y2="12" /><line x1="25" y1="4" x2="34" y2="12.5" /><line x1="25" y1="20" x2="34" y2="11.5" /></svg>');
+				@media screen and (prefers-color-scheme: dark) {
+					background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36px" height="24px" viewBox="0 0 36 24" zoomAndPan="disable"><style>line { stroke: #{_palette_dark(fg-bold)}; stroke-width: 2px; }</style><line x1="0" y1="12" x2="34" y2="12" /><line x1="25" y1="4" x2="34" y2="12.5" /><line x1="25" y1="20" x2="34" y2="11.5" /></svg>');
+				}
 			}
 
 			&:after {
-				background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36px" height="24px" viewBox="0 0 36 24" zoomAndPan="disable"><style>line { stroke: #{_palette(highlight)}; stroke-width: 2px; }</style><line x1="0" y1="12" x2="34" y2="12" /><line x1="25" y1="4" x2="34" y2="12.5" /><line x1="25" y1="20" x2="34" y2="11.5" /></svg>');
+				background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36px" height="24px" viewBox="0 0 36 24" zoomAndPan="disable"><style>line { stroke: #{_palette_light(highlight)}; stroke-width: 2px; }</style><line x1="0" y1="12" x2="34" y2="12" /><line x1="25" y1="4" x2="34" y2="12.5" /><line x1="25" y1="20" x2="34" y2="11.5" /></svg>');
+				@media screen and (prefers-color-scheme: dark) {
+					background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36px" height="24px" viewBox="0 0 36 24" zoomAndPan="disable"><style>line { stroke: #{_palette_dark(highlight)}; stroke-width: 2px; }</style><line x1="0" y1="12" x2="34" y2="12" /><line x1="25" y1="4" x2="34" y2="12.5" /><line x1="25" y1="20" x2="34" y2="11.5" /></svg>');
+				}
 				opacity: 0;
 				z-index: 1;
 			}
@@ -107,17 +126,28 @@
 		}
 
 		&.primary {
-			background-color: _palette(fg-bold);
+			background-color: _palette_light(fg-bold);
 			box-shadow: none;
-			color: _palette(bg);
+			color: _palette_light(bg);
+			@media screen and (prefers-color-scheme: dark) {
+				background-color: _palette_dark(fg-bold);
+				color: _palette_dark(bg);
+			}
 
 			&:hover, &:active {
-				background-color: _palette(highlight);
-				color: _palette(bg) !important;
+				background-color: _palette_light(highlight);
+				color: _palette_light(bg) !important;
+				@media screen and (prefers-color-scheme: dark) {
+					background-color: _palette_dark(highlight);
+					color: _palette_dark(bg) !important;
+				}
 			}
 
 			&:active {
-				background-color: desaturate(darken(_palette(highlight), 15), 5);
+				background-color: desaturate(darken(_palette_light(highlight), 15), 5);
+				@media screen and (prefers-color-scheme: dark) {
+					background-color: desaturate(darken(_palette_dark(highlight), 15), 5);
+				}
 			}
 		}
 

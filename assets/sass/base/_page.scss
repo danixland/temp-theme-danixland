@@ -34,7 +34,10 @@
 		}
 
 	body {
-		background: _palette(bg);
+		background: _palette_light(bg);
+		@media screen and (prefers-color-scheme: dark) {
+			background: _palette_dark(bg);
+		}
 
 		// Stops initial animations until page loads.
 			&.is-preload {

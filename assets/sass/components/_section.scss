@@ -26,11 +26,14 @@
 
 				&:after {
 					content: '';
-					background-color: _palette(fg-bold);
+					background-color: _palette_light(fg-bold);
 					display: block;
 					height: 2px;
 					margin: 0.325em 0 0.5em 0;
 					width: 100%;
+					@media screen and (prefers-color-scheme: dark) {
+						background-color: _palette_dark(fg-bold);
+					}
 				}
 			}
 
