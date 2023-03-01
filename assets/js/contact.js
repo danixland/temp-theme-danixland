@@ -8,13 +8,15 @@
   'use strict';
 
   const form = document.querySelector('.contact-form');
-  const button = form.querySelector('.form-submit');
+  const submit_button = form.querySelector('.form-submit');
+  const reset_button = form.querySelector('.form-reset');
   const action = form.getAttribute('data-protect');
   const body = document.querySelector('body');
 
   function activateForm() {
     form.setAttribute('action', action);
-    button.removeAttribute('disabled');
+    submit_button.removeAttribute('disabled');
+    reset_button.removeAttribute('disabled');
   }
 
   // Display the hidden form.
@@ -32,7 +34,10 @@
   });
 
   // Mark the form as submitted.
-  button.addEventListener('click', () => form.classList.add('js-submitted'));
+  submit_button.addEventListener('click', () => form.classList.add('js-submitted'));
+
+  // Reset the form with the clear button
+  reset_button.addEventListener('click', () => form.reset());
 
   // Display messages.
   if (location.search.substring(1) !== '') {
