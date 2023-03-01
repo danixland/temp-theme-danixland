@@ -3,9 +3,7 @@
 		<div class="row">
 			<div class="col-4 col-12-medium">
 				<ul class="footer-tools">
-					{{ with .OutputFormats.Get "rss" -}}
-					<li><a href="{{.Permalink}}" title="{{$.Site.Title}}" target="_blank">{{- partial "funcs/svg.html" (dict "context" . "username" "rss") -}}<span class="screen-reader-text">RSS Feed</span></a></li>
-					{{ end -}}
+					<li><a href="/danix_pubkey.asc" title="My public GPG key" target="_blank">{{- partial "funcs/svg.html" (dict "context" . "username" "key") -}}<span class="screen-reader-text">My GnuPG public key</span></a></li>
 					<li><a href="{{.Site.BaseURL}}sitemap.xml" target="_blank">{{- partial "funcs/svg.html" (dict "context" . "username" "sitemap") -}}<span class="screen-reader-text">sitemap</span></a></li>
 					<li><a href="{{ ref . "legal" }}">{{- partial "funcs/svg.html" (dict "context" . "username" "lock-open") -}}<span class="screen-reader-text">Privacy Policy</span></a></li>
 				</ul>
