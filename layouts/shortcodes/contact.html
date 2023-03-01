@@ -2,9 +2,9 @@
   <div class="inner">
     <section>
 
-      <p class="error message js-hidden">{{ i18n "js_required" }}</p>
-      <p class="contact-submitted status message hidden">{{ i18n "contact_submitted" }}</p>
-      <p class="contact-error error message hidden">{{ i18n "contact_error" }}</p>
+      <p class="error message js-hidden">Javascript is required for this form to work</p>
+      <p class="contact-submitted status message hidden">Your message has been sent correctly. I'll get back at you as soon as possible</p>
+      <p class="contact-error error message hidden">There's been a problem with your message, I'll dispatch the wizard to investigate the issue.</p>
 
       <form class="contact-form hidden" data-protect="/php/contact.php" action="#" method="post" accept-charset="UTF-8">
         <div class="fields">
@@ -32,9 +32,8 @@
         </ul>
         
       </form>
-
-
     </section>
+
     <section class="split">
       <section>
         <div class="contact-method">
