@@ -60,6 +60,15 @@
 			}
 		}
 	}
+	.image.signature {
+		&.left,
+		&.right {
+			max-width: 60%;
+		}
+		@media screen and (prefers-color-scheme: dark) {
+			filter: invert(84%) sepia(12%) saturate(486%) hue-rotate(197deg) brightness(84%) contrast(87%);
+		}
+	}
 
 	.circle > img {
 		@include circle(200px, "block");

@@ -197,7 +197,8 @@
 	}
 
 	.screen-reader-text,
-	.hidden {
+	.hidden,
+	.js-hidden {
 		@include hide-visually;
 	}
 
