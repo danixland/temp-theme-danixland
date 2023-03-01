@@ -1,0 +1,22 @@
+<div id="search-container">
+  <p class="error message js-hidden">JavaScript is required for this form to work</p>
+  <p class="search-loading status message hidden">Loading Search Results</p>
+
+  <div class="search-input hidden">
+    <form id="search-form" class="search-form" action="#" method="post" accept-charset="UTF-8" role="search">
+      <label for="query" >Search this site</label>
+      <input type="search" id="query" name="query" class="search-text" placeholder="Search this site..." maxlength="128">
+      <input type="submit" name="submit" class="form-submit hidden" value="Search" />
+    </form>
+  </div>
+
+  <div class="search-results"></div>
+
+  <template>
+    <article class="search-result list-view">
+      <header>
+        <h3 class="title title-submitted"><a href="#">Title here</a></h3>
+      </header>
+    </article>
+  </template>
+</div>

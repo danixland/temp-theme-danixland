@@ -31,12 +31,12 @@ import * as params from '@params';
       const item = items[id];
       const result = template.cloneNode(true);
       const a = result.querySelector('a');
-      const time = result.querySelector('time');
-      const content = result.querySelector('.content');
+      // const time = result.querySelector('time');
+      // const content = result.querySelector('.content');
       a.innerHTML = item.title;
       a.href = item.permalink;
-      time.innerText = item.date;
-      content.innerHTML = item.summary;
+      // time.innerText = item.date;
+      // content.innerHTML = item.summary;
       fragment.appendChild(result);
     }
     results.appendChild(fragment);

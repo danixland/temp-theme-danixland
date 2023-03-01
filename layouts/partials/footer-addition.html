@@ -18,10 +18,8 @@
 <script defer src="{{ $contact.RelPermalink }}"></script>
 {{ end -}}
 
-{{ if .HasShortcode "search" -}}
 {{ $flexsearch := resources.Get "js/flexsearch.compact.js" | fingerprint -}}
 <script defer src="{{ $flexsearch.RelPermalink }}"></script>
 {{ $search_opts := dict "minify" true "params" (dict "searchLimit" (site.Params.searchLimit | default 20)) -}}
 {{ $search := resources.Get "js/search.js" | js.Build $search_opts | fingerprint -}}
 <script defer src="{{ $search.RelPermalink }}"></script>
-{{ end -}}
