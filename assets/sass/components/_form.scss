@@ -91,7 +91,7 @@
 	textarea {
 		@include vendor('appearance', 'none');
 		background: _palette_light(border-bg);
-		border: none;
+		border: 1px solid _palette_light(fg-light);
 		border-radius: 0;
 		color: inherit;
 		display: block;
@@ -100,7 +100,8 @@
 		text-decoration: none;
 		width: 100%;
 		@media screen and (prefers-color-scheme: dark) {
-			background: _palette_dark(border-bg);
+			background: _palette_dark(border);
+			border: 1px solid _palette_dark(fg-light);
 		}
 
 		&:invalid {
@@ -109,10 +110,10 @@
 
 		&:focus {
 			border-color: _palette_light(highlight);
-			box-shadow: 0 0 0 2px _palette_light(highlight);
+			box-shadow: inset 0 0 0 2px _palette_light(highlight);
 			@media screen and (prefers-color-scheme: dark) {
 				border-color: _palette_dark(highlight);
-				box-shadow: 0 0 0 2px _palette_dark(highlight);
+				box-shadow: inset 0 0 0 2px _palette_dark(highlight);
 			}
 		}
 	}
@@ -221,9 +222,9 @@
 
 		&:focus + label {
 			&:before {
-				box-shadow: 0 0 0 2px _palette_light(highlight);
+				box-shadow: inset 0 0 0 2px _palette_light(highlight);
 				@media screen and (prefers-color-scheme: dark) {
-					box-shadow: 0 0 0 2px _palette_dark(highlight);
+					box-shadow: inset 0 0 0 2px _palette_dark(highlight);
 				}
 			}
 		}
