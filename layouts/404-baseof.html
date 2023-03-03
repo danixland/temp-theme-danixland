@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html lang="{{ $.Site.LanguageCode | default "en" }}">
 	{{- partial "head.html" . -}}
-	<body class="not-found 404 error">
-		<div id="page">
-			<a class="skip-link screen-reader-text" href="#primary">skip to content</a>
+	<body class="not-found 404 error is-preload">
+		<a id="top" class="scrolly skip-link screen-reader-text" href="#main">skip to content</a>
+		<div id="wrapper">
 			{{- partial "header.html" . -}}
-			<div id="content" class="site-content">
-				<div id="primary" class="content-area">
-					<main id="main" class="site-main">
-						{{- block "404-main" . }}{{- end }}
-					</main>
+			<section id="banner">
+				<div class="inner">
+					<header>
+						<h1>{{ .Site.Title }}</h1>
+					</header>
+					<div class="content">
+						<p>{{ .Site.Params.Description }}</p>
+					</div>
 				</div>
-				<div id="secondary" class="related-content">
-					{{- partial "tag-cloud.html" . -}}
-					{{- partial "home-latest-posts.html" . -}}
-				</div>
+			</section>
+			<div id="main">
+				<section id="one">
+					{{- block "404-main" . }}{{- end }}
+				</section>
+				<section id="two">
+					<div class="inner">
+						{{- partial "tag-cloud.html" . -}}
+						{{- partial "home-latest-posts.html" . -}}
+					</div>
+				</section>
 			</div>
 			{{- partial "footer.html" . -}}
 		</div>
+		{{- partial "footer-addition.html" . -}}
 	</body>
 </html>
