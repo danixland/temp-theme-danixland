@@ -15,6 +15,14 @@
 			display: block;
 		}
 
+		&.shadow {
+			img {
+				@include box-shadow(-5px, 5px, 5px, _palette_light(fg-bold));
+				@media screen and (prefers-color-scheme: dark) {
+					@include box-shadow(-5px, 5px, 5px, _palette_light(fg-bold));
+				}
+			}
+		}
 		&.left,
 		&.right {
 			max-width: 30%;
@@ -26,13 +34,13 @@
 
 		&.left {
 			float: left;
-			margin: 0 1.5em 1.25em 0;
+			margin: 0 1.5em 0.5em 1em;
 			top: 0.25em;
 		}
 
 		&.right {
 			float: right;
-			margin: 0 0 1.25em 1.5em;
+			margin: 0 1em 0.5em 1.5em;
 			top: 0.25em;
 		}
 

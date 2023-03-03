@@ -1,5 +1,5 @@
-<span class="inline-svg">
-{{- $fname := print "SVGs/" ( .Get 0 ) ".svg" -}}
+<span class="inline-svg{{ with .Get "class" }} {{ . }}{{ end }}">
+{{- $fname := print "SVGs/" ( .Get "name" ) ".svg" -}}
 {{ $icon := resources.Get $fname }}
 {{ $icon.Content | safeHTML }}
 </span>

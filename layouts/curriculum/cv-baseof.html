@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="{{ $.Site.LanguageCode | default "en" }}">
+	{{- partial "head.html" . -}}
+	<body class="curriculum is-preload">
+		<a id="top" class="skip-link screen-reader-text" href="#primary">skip to content</a>
+		<div id="wrapper">
+			{{- partial "header.html" . -}}
+			<div id="main">
+				<section id="one">
+					{{- block "curriculum-main" . }}{{- end }}
+				</section>
+				<section id="two" class="alt">
+					{{- block "curriculum-footer" . }}{{- end }}
+				</section>
+			</div>
+			{{- partial "footer.html" . -}}
+		</div>
+		{{- partial "footer-addition.html" . -}}
+	</body>
+</html>

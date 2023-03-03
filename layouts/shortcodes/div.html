@@ -1,0 +1,4 @@
+{{ if .Get "class" }}
+<div class="{{ with .Get "class" }}{{ . }}{{ end }}">
+{{ end }}
+
