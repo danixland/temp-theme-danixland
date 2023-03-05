@@ -4,16 +4,22 @@
 	<meta name="color-scheme" content="light dark">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
-
 	{{ $style_options := (dict "targetPath" "css/style.css" "outputStyle" "compressed" "transpiler" "dartsass" "enableSourceMap" (not hugo.IsProduction)) }}
-	{{ $style := resources.Get "sass/main.scss" | resources.ToCSS $style_options }}
+	{{ $style := resources.Get "sass/main.scss" | resources.ToCSS $style_options | fingerprint }}
 
 	{{ $noscript_options := (dict "targetPath" "css/noscript.css" "outputStyle" "compressed" "transpiler" "dartsass" "enableSourceMap" (not hugo.IsProduction)) }}
-	{{ $noscript := resources.Get "sass/noscript.scss" | resources.ToCSS $noscript_options }}
+	{{ $noscript := resources.Get "sass/noscript.scss" | resources.ToCSS $noscript_options | fingerprint }}
 
 	<link rel="stylesheet" href="{{ $style.RelPermalink }}">
 	<link rel="stylesheet" href="{{ "css/syntax.css" |relURL }}">
 	<noscript><link rel="stylesheet" href="{{ $noscript.RelPermalink }}" ></noscript>
+
+	{{ if eq "curriculum" .Type }}
+	{{ $print_style_options := (dict "targetPath" "css/print.css" "outputStyle" "compressed" "transpiler" "dartsass" "enableSourceMap" (not hugo.IsProduction)) }}
+	{{ $print_style := resources.Get "sass/print.scss" | resources.ToCSS $print_style_options | fingerprint }}
+	<link media="print" rel="stylesheet" href="{{ $print_style.RelPermalink }}">
+	{{ end }}
+
 	{{ partial "funcs/favicon.html" . }}
 	<link rel="canonical" href="{{ .Permalink }}">
 
