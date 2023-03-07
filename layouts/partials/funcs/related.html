@@ -1,0 +1,36 @@
+{{ $related := .Site.RegularPages.Related . | first 5 }}
+{{ with $related }}
+<h3>You might also be interested in:</h3>
+<ul>
+    {{ range . }}
+    <li>
+        <a class="image" href="{{.Permalink}}">
+        {{ if isset .Params "featured_image" }}
+            <img src="{{ .Params.featured_image | absURL}}" alt="{{.Title}}" width="200">
+        {{ else }}
+            {{ $default_image := resources.Get "img/default_article.jpg" }} 
+            <img src="{{ $default_image.Permalink }}" alt="{{.Title}}" width="200">
+        {{ end }}
+            {{ .Title }}
+        </a>
+    </li>
+    {{ end }}
+</ul>
+{{ else }}
+<h3>Check out these awesome articles:</h3>
+<ul>
+    {{ range first 5 ( where site.RegularPages "Type" "in" site.Params.mainSections ) }}
+    <li>
+        <a class="image" href="{{.Permalink}}">
+        {{ if isset .Params "featured_image" }}
+            <img src="{{ .Params.featured_image | absURL}}" alt="{{.Title}}" width="200">
+        {{ else }}
+            {{ $default_image := resources.Get "img/default_article.jpg" }} 
+            <img src="{{ $default_image.Permalink }}" alt="{{.Title}}" width="200">
+        {{ end }}
+            {{ .Title }}
+        </a>
+    </li>
+    {{ end }}
+</ul>
+{{ end }}

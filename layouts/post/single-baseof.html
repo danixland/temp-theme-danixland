@@ -28,7 +28,7 @@
 					{{- block "article-main" . }}{{- end }}
 				</section>
 				<section id="three">
-					<div class="inner">articoli correlati</div>
+					{{- partial "funcs/related.html" . -}}
 				</section>
 			</div>
 			{{- partial "footer.html" . -}}
