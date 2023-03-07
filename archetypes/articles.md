@@ -2,6 +2,7 @@
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 draft: true
+type: post
 author: "{{ $.Site.Params.author_name }}"
 format: ""
 excerpt: ""
