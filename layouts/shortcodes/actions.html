@@ -1,0 +1,8 @@
+{{ $link := .Get "url" }}
+{{ $desc := .Get "desc" }}
+{{ $outclass := .Get "outclass" }}
+{{ $inclass := .Get "inclass" }}
+<ul class="actions{{ with $outclass }} {{ . }}{{ end }}">
+	<li><a href="{{ $link }}" class="button{{ with $inclass }} {{ . }}{{ end }}">{{ $desc }}</a></li>
+</ul>
+ 
