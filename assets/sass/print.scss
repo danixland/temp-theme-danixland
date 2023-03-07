@@ -14,6 +14,9 @@ body {
 	width: 100%;
 	margin: 0;
 	float: none;
+	div#main {
+		background-color: initial;
+	}
 }
 figure.image {
 	&.shadow {
@@ -25,8 +28,9 @@ figure.image {
 		@include hide-visually;
 	}
 }
-header#header,
 #backtotop,
+footer#shareme,
+header#header,
 footer#footer {
 	@include hide-visually;
 }
@@ -68,5 +72,8 @@ div.col-8 {
 	}
 	strong {
 		page-break-before: avoid;
+	}
+	p {
+		page-break-inside: avoid !important;
 	}
 }

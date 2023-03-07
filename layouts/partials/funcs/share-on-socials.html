@@ -23,4 +23,11 @@
     <!-- Telegram -->
     <a href="https://telegram.me/share/url?text={{ .Title }}&amp;url={{ .Permalink }}" target="_blank" rel="noopener" aria-label="">{{- partial "funcs/svg.html" (dict "context" . "username" "telegram") -}}<span class="screen-reader-text">Share "{{ .Title }}" via Telegram</span></a>
   </li>
+  {{ if eq "curriculum" .Type }}
+  <!-- Print this page -->
+  <li>
+    <a href="javascript:window.print()">{{- partial "funcs/svg.html" (dict "context" . "username" "print") -}}<span class="screen-reader-text">Print "{{ .Title }}"</span></a>
+    <a href=""></a>
+  </li>
+  {{ end }}
 </ul>

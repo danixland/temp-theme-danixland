@@ -114,3 +114,19 @@
 			}
 		}
 	}
+	// signature inside single articles
+	div#post-signature {
+		clear: both;
+		overflow: hidden;
+		width: 100%;
+		margin: 0;
+		div#signature {
+			margin: 0;
+			padding: 0;
+			img.signature {
+				margin: 0;
+				margin-right: 4em;
+				width: 350px;
+			}
+		}
+	}

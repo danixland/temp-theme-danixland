@@ -69,6 +69,10 @@
 
 	p {
 		margin: 0 0 _size(element-margin) 0;
+		&.smaller {
+			font-style: italic;
+			font-size: 12pt;
+		}
 	}
 
 	h1, h2, h3, h4, h5, h6 {

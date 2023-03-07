@@ -1,7 +1,10 @@
 {{ define "article-main" }}
 	<div class="inner">
+		{{- partial "funcs/datepublish.html" . -}}
 		<p>{{ .Content }}</p>
-		<p>firma e metadata</p>
+		<div id="post-signature">{{- partial "funcs/signature.html" . -}}</div>
+		<p>{{- partial "funcs/categories.html" . -}}</p>
+		<p>{{- partial "funcs/tags.html" . -}}</p>
 		<p>{{- partial "funcs/share-on-socials.html" . -}}</p>
 	</div>
 {{ end }}
