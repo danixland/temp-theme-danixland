@@ -5,7 +5,7 @@
 				<ul class="footer-tools">
 					<li><a href="/danix_pubkey.asc" title="My public GPG key" target="_blank">{{- partial "funcs/svg.html" (dict "context" . "username" "key") -}}<span class="screen-reader-text">My GnuPG public key</span></a></li>
 					<li><a href="{{.Site.BaseURL}}sitemap.xml" target="_blank">{{- partial "funcs/svg.html" (dict "context" . "username" "sitemap") -}}<span class="screen-reader-text">sitemap</span></a></li>
-					<li><a href="{{ ref . "legal" }}">{{- partial "funcs/svg.html" (dict "context" . "username" "lock-open") -}}<span class="screen-reader-text">Privacy Policy</span></a></li>
+					<li><a href="{{ ref . "is/legal/index.md" }}">{{- partial "funcs/svg.html" (dict "context" . "username" "lock-open") -}}<span class="screen-reader-text">Privacy Policy</span></a></li>
 				</ul>
 			</div>
 			<div class="col-4 col-12-medium copyright align-center">

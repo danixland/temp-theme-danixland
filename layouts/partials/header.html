@@ -1,4 +1,4 @@
-<header id="header" class="alt">
+<header id="header" class="alt{{if .IsHome }} style4 reveal{{ end }}">
 	<a href="{{ .Site.BaseURL }}" rel="home" class="logo"><strong>{{ slicestr .Site.Title 0 5 }}</strong><span>{{ slicestr .Site.Title 5 }}</span></a>
 	<nav>
 		<a href="#menu">Menu</a>

@@ -1,0 +1,51 @@
+{{ define "category-list" }}
+<section id="one">
+	<div class="inner">
+		<header class="major">
+			<h2>Category: {{ .Title }}</h2>
+		</header>
+		<p>Here you'll find all my articles related to {{ .Title }}. Enjoy.</p>
+	</div>
+</section>
+<section id="two" class="spotlights">
+	<!-- Ranges through content/articles/*.md -->
+	{{ range .Paginator.Pages }}
+	<section>
+		<a class="image" href="{{.Permalink}}">
+		{{ if isset .Params "featured_image" }}
+			<img src="{{ .Params.featured_image | absURL}}" data-position="center center" alt="{{.Title}}">
+		{{ else }}
+			{{ $default_image := resources.Get "img/default_article.jpg" }} 
+			<img src="{{ $default_image.Permalink }}" data-position="center center" alt="{{.Title}}">
+		{{ end }}
+		</a>
+		<div class="content">
+			<div class="inner">
+				<header class="major">
+					<h3>
+					{{ if gt (len .Title) 40 }}
+						{{ $first50 := ( substr .Title 0 40 ) }}
+						{{ $lastChars := ( substr .Title 40 ) }}
+						{{ $newLine := "<br>" }}
+						{{ $newTitle := ( printf "%s" $lastChars | printf "%s%s" $newLine | printf "%s%s" $first50  ) }}
+						{{ $newTitle | safeHTML }}
+					{{ else }}
+						{{ .Title }}
+					{{ end }}
+					</h3>
+				</header>
+				<p>{{ .Params.excerpt }}</p>
+				<ul class="actions">
+					<li><a href="{{.Permalink}}" class="button">Read More</a></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+	{{ end }}
+</section>
+<section id="three">
+	<div class="inner">
+		{{ partial "pagination.html" . }}
+	</div>
+</section>
+{{ end }}

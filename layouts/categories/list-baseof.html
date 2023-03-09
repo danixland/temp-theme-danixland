@@ -1,30 +1,28 @@
 <!DOCTYPE html>
 <html lang="{{ $.Site.LanguageCode | default "en" }}">
 	{{- partial "head.html" . -}}
-	<body class="homepage home is-preload">
-		<a id="top" class="scrolly skip-link screen-reader-text" href="#main">skip to content</a>
+	<body class="is-preload">
+		<a id="top" class="skip-link screen-reader-text" href="#primary">skip to content</a>
 		<div id="wrapper">
 			{{- partial "header.html" . -}}
-			<section id="banner" class="major{{if .IsHome }} style4{{ end }}">
+
+			<section id="banner" class="major">
 				<div class="inner">
 					<header class="major">
 						<h1>{{ .Site.Title }}</h1>
 					</header>
 					<div class="content">
 						<p>{{ .Site.Params.Description }}</p>
-						<ul class="actions">
-							<li><a href="#one" class="button next scrolly">Let's go!!</a></li>
-						</ul>
 					</div>
 				</div>
 			</section>
+
 			<div id="main">
-				<section id="one">
-					{{- block "home-main" . }}{{- end }}
-				</section>
+				{{- block "category-list" . }}{{- end }}
 			</div>
 			{{- partial "footer.html" . -}}
 		</div>
 		{{- partial "footer-addition.html" . -}}
 	</body>
 </html>
+
