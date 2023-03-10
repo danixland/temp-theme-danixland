@@ -1,0 +1,9 @@
+	.gallery {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: 20px;
+	}
+	.animate-fade {
+		animation: fadeIn 750ms ease-in-out;
+	}
+	

@@ -63,8 +63,15 @@
 		font-weight: _font(weight-bold);
 	}
 
-	em, i {
+	em, i, strike {
 		font-style: italic;
+	}
+
+	mark {
+		background-color: lighten(_palette_light(highlight), 10%);
+		color: _palette_light(fg-bold);
+		padding-left: 0.2em;
+		padding-right: 0.2em;
 	}
 
 	p {

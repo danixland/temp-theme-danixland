@@ -1,0 +1,82 @@
+{{/*
+    Taken from https://www.brycewray.com/posts/2022/06/responsive-optimized-images-hugo/
+*/}}
+
+{{- $respSizes := .Site.Params.imageSizes -}}
+{{- $src := .Get "src" -}}
+{{- $source := resources.Get $src -}}
+{{- $alt := .Get "alt" -}}
+{{- $divClass := "" -}}
+{{/*
+    The styling in $imgClass, below, makes
+    an image fill the container horizontally
+    and adjust its height automatically
+    for that, and then fade in for the LQIP effect.
+    Feel free to adjust your CSS/SCSS as desired.
+*/}}
+{{- $imgClass := "w-full h-auto animate-fade" -}}
+{{- $dataSzes := "(min-width: 1024px) 100vw, 50vw" -}}
+{{/*
+    Now we'll create the 20-pixel-wide LQIP
+    and turn it into Base64-encoded data, which
+    is better for performance and caching.
+*/}}
+{{- $LQIP_img := $source.Resize "20x jpg" -}}
+{{- $LQIP_b64 := $LQIP_img.Content | base64Encode -}}
+{{/*
+    $CFPstyle is for use in styling
+    the div's background, as you'll see shortly.
+*/}}
+{{- $CFPstyle := printf "%s%s%s" "background: url(data:image/jpeg;base64," $LQIP_b64 "); background-size: cover; background-repeat: no-repeat;" -}}
+{{/*
+    Then, we create a 640-pixel-wide JPG
+    of the image. This will serve as the
+    "fallback" image for that tiny percentage
+    of browsers that don't understand the
+    HTML `picture` tag.
+*/}}
+{{- $actualImg := $source.Resize "640x jpg" -}}
+<div class="image" style="{{ $CFPstyle | safeCSS }}">
+{{/*
+    Now we'll build the `picture` which modern
+    browsers use to decide which image, and
+    which format thereof, to show. Remember to
+    put `webp` first, since the browser will use
+    the first format it **can** use, and WebP files
+    usually are smaller. After WebP, the fallback
+    is the universally safe JPG format.
+*/}}
+    <picture>
+        <source
+            type="image/webp"
+            srcset="
+            {{- with $respSizes -}}
+                {{- range $i, $e := $respSizes -}}
+                    {{- if ge $source.Width . -}}
+                        {{- if $i }}, {{ end -}}{{- ($source.Resize (printf "%vx%v" $e " webp") ).RelPermalink }} {{ . }}w
+                    {{- end -}}
+                {{- end -}}
+            {{- end -}}"
+            sizes="{{ $dataSzes }}"
+        />
+        <source
+            type="image/jpeg"
+            srcset="
+            {{- with $respSizes -}}
+                {{- range $i, $e := . -}}
+                    {{- if ge $source.Width . -}}
+                        {{- if $i }}, {{ end -}}{{- ($source.Resize (printf "%vx%v" . " jpg") ).RelPermalink }} {{ . }}w
+                    {{- end -}}
+                {{- end -}}
+            {{- end -}}"
+            sizes="{{ $dataSzes }}"
+        />
+        <img class="{{ $imgClass }}"
+            src="{{ $actualImg.RelPermalink }}"
+            width="{{ $source.Width }}"
+            height="{{ $source.Height }}"
+            alt="{{ $alt }}"
+            loading="lazy"
+        />
+    </picture>
+</div>
