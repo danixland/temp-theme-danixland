@@ -2,11 +2,13 @@
 	* Add the featured image to the header if it's present in the Front Matter
 	*/}}
 {{ if .IsPage }}
-	{{ if isset .Params "featured_image" }}
-	<style media="screen">
-		#banner {
-			background-image: url( {{ $.Params.featured_image | absURL }} );
-		}
-	</style>
+	{{ with $.Params.featured_image }}
+		{{ $source := $.Params.featured_image }}
+		{{ $image := resources.Get $source }}
+		<style media="screen">
+			#banner {
+				background-image: url( {{ $image.Permalink }} );
+			}
+		</style>
 	{{ end }}
 {{ end }}
