@@ -3,12 +3,14 @@
 	*/}}
 {{ if .IsPage }}
 	{{ with $.Params.featured_image }}
-		{{ $source := $.Params.featured_image }}
-		{{ $image := resources.Get $source }}
-		<style media="screen">
+		{{ with resources.Get . }}
+			<style media="screen">
 			#banner {
-				background-image: url( {{ $image.Permalink }} );
+			background-image: url( {{ .Permalink }} );
 			}
-		</style>
+			</style>
+		{{ else }}
+			{{ warnf "featured image not found: %s" . }}
+		{{ end }}
 	{{ end }}
 {{ end }}
