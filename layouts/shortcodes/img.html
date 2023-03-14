@@ -27,7 +27,7 @@
     $CFPstyle is for use in styling
     the div's background, as you'll see shortly.
 */}}
-{{- $CFPstyle := printf "%s%s%s" "background: url(data:image/jpeg;base64," $LQIP_b64 "); background-size: cover; background-repeat: no-repeat;" -}}
+{{- $CFPstyle := printf "%s%s%s%v%s%v%s" "background: url(data:image/jpeg;base64," $LQIP_b64 "); background-size: cover; background-repeat: no-repeat; width: " $source.Width "; height: " $source.Height ";" -}}
 {{/*
     Then, we create a 640-pixel-wide JPG
     of the image. This will serve as the
