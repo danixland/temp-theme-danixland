@@ -67,6 +67,12 @@
 				margin: (_size(element-margin) * 0.75) 0;
 			}
 		}
+		&.w-full {
+			width: 100%;
+		}
+		&.h-auto {
+			height: auto;
+		}
 	}
 	.image.signature {
 		&.left,
@@ -105,6 +111,10 @@
 			margin: 0 0 _size(element-margin) 0;
 			width: 100%;
 		}
+	}
+
+	.animate-fade {
+		animation: fadeIn 750ms ease-in-out;
 	}
 
 	figure {

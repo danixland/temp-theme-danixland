@@ -1,9 +1,22 @@
 	.gallery {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		grid-gap: 20px;
-	}
-	.animate-fade {
-		animation: fadeIn 750ms ease-in-out;
+		.gallery-inner {
+			// masonry container
+			columns: 3;
+			@include breakpoint('<=medium') {
+				columns: 2;
+			}
+			@include breakpoint('<=small') {
+				columns: 1;
+			}
+			column-gap: 1.5em;
+			a.gallery-item {
+				display: inline-block;
+				width: 100%;
+				padding: 0;
+				margin: 0 1em 1em 0;
+				text-decoration: none;
+				border-bottom: none;
+			}
+		}
 	}
 	

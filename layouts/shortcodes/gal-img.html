@@ -1,0 +1,7 @@
+{{- $src := .Get "src" -}}
+{{- $source := resources.Get $src -}}
+{{- $alt := .Get "alt" -}}
+{{- $icon := $source.Resize "400x webp" -}}
+<a class="gallery-item" href="{{ $source.RelPermalink }}" target="_blank">
+    <img src="{{ $icon.RelPermalink }}" alt="{{ $alt }}">
+</a>

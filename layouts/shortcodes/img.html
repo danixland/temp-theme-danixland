@@ -6,7 +6,7 @@
 {{- $src := .Get "src" -}}
 {{- $source := resources.Get $src -}}
 {{- $alt := .Get "alt" -}}
-{{- $divClass := "" -}}
+{{- $divClass := .Get "divClass" -}}
 {{/*
     The styling in $imgClass, below, makes
     an image fill the container horizontally
@@ -27,7 +27,7 @@
     $CFPstyle is for use in styling
     the div's background, as you'll see shortly.
 */}}
-{{- $CFPstyle := printf "%s%s%s%v%s%v%s" "background: url(data:image/jpeg;base64," $LQIP_b64 "); background-size: cover; background-repeat: no-repeat; width: " $source.Width "; height: " $source.Height ";" -}}
+{{- $CFPstyle := printf "%s%s%s%v%s%v%s" "background: url(data:image/jpeg;base64," $LQIP_b64 "); background-size: cover; background-repeat: no-repeat; width: " $source.Width "px; height: " $source.Height "px;" -}}
 {{/*
     Then, we create a 640-pixel-wide JPG
     of the image. This will serve as the
@@ -36,7 +36,7 @@
     HTML `picture` tag.
 */}}
 {{- $actualImg := $source.Resize "640x jpg" -}}
-<div class="image" style="{{ $CFPstyle | safeCSS }}">
+<div class="picture{{with $divClass}} {{.}}{{end}}" style="{{ $CFPstyle | safeCSS }}">
 {{/*
     Now we'll build the `picture` which modern
     browsers use to decide which image, and
@@ -46,37 +46,38 @@
     usually are smaller. After WebP, the fallback
     is the universally safe JPG format.
 */}}
-    <picture>
-        <source
-            type="image/webp"
-            srcset="
-            {{- with $respSizes -}}
-                {{- range $i, $e := $respSizes -}}
-                    {{- if ge $source.Width . -}}
-                        {{- if $i }}, {{ end -}}{{- ($source.Resize (printf "%vx%v" $e " webp") ).RelPermalink }} {{ . }}w
+    <a href="{{ $source.RelPermalink }}">
+        <picture>
+            <source
+                type="image/webp"
+                srcset="
+                {{- with $respSizes -}}
+                    {{- range $i, $e := $respSizes -}}
+                        {{- if ge $source.Width . -}}
+                            {{- if $i }}, {{ end -}}{{- ($source.Resize (printf "%vx%v" $e " webp") ).RelPermalink }} {{ . }}w
+                        {{- end -}}
                     {{- end -}}
-                {{- end -}}
-            {{- end -}}"
-            sizes="{{ $dataSzes }}"
-        />
-        <source
-            type="image/jpeg"
-            srcset="
-            {{- with $respSizes -}}
-                {{- range $i, $e := . -}}
-                    {{- if ge $source.Width . -}}
-                        {{- if $i }}, {{ end -}}{{- ($source.Resize (printf "%vx%v" . " jpg") ).RelPermalink }} {{ . }}w
+                {{- end -}}"
+                sizes="{{ $dataSzes }}"
+            />
+            <source
+                type="image/jpeg"
+                srcset="
+                {{- with $respSizes -}}
+                    {{- range $i, $e := . -}}
+                        {{- if ge $source.Width . -}}
+                            {{- if $i }}, {{ end -}}{{- ($source.Resize (printf "%vx%v" . " jpg") ).RelPermalink }} {{ . }}w
+                        {{- end -}}
                     {{- end -}}
-                {{- end -}}
-            {{- end -}}"
-            sizes="{{ $dataSzes }}"
-        />
-        <img class="{{ $imgClass }}"
-            src="{{ $actualImg.RelPermalink }}"
-            width="{{ $source.Width }}"
-            height="{{ $source.Height }}"
-            alt="{{ $alt }}"
-            loading="lazy"
-        />
-    </picture>
+                {{- end -}}"
+                sizes="{{ $dataSzes }}"
+            />
+            <img class="{{ $imgClass }}"
+                src="{{ $actualImg.RelPermalink }}"
+                width="640"
+                alt="{{ $alt }}"
+                loading="lazy"
+            />
+        </picture>
+    </a>
 </div>
