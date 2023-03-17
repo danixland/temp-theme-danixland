@@ -46,11 +46,15 @@
 
 		&.fit {
 			display: block;
-			margin: 0 0 _size(element-margin) 0;
-			width: 100%;
+			margin: 0 auto _size(element-margin);
+			width: 90%;
 
 			img {
 				width: 100%;
+			}
+			div.picture {
+				max-width: 100%;
+				height: auto;
 			}
 		}
 
@@ -61,6 +65,11 @@
 
 			img {
 				width: 100%;
+				max-width: 100%;
+			}
+			div.picture {
+				max-width: 100%;
+				height: auto;
 			}
 
 			@include breakpoint('<=small') {
@@ -147,4 +156,8 @@
 				overflow: hidden;
 			}
 		}
+	}
+
+	div.picture {
+		display: inline-block;
 	}

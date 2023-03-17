@@ -14,7 +14,7 @@
     for that, and then fade in for the LQIP effect.
     Feel free to adjust your CSS/SCSS as desired.
 */}}
-{{- $imgClass := "w-full h-auto animate-fade" -}}
+{{- $imgClass := "animate-fade" -}}
 {{- $dataSzes := "(min-width: 1024px) 100vw, 50vw" -}}
 {{/*
     Now we'll create the 20-pixel-wide LQIP
@@ -74,7 +74,8 @@
             />
             <img class="{{ $imgClass }}"
                 src="{{ $actualImg.RelPermalink }}"
-                width="640"
+                width="{{ $source.Width }}"
+                height="{{ $source.Height }}" 
                 alt="{{ $alt }}"
                 loading="lazy"
             />
